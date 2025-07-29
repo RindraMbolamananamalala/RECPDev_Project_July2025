@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CopyToImageDialog">
+		<item key="CopyToImageDialog.folder" value="C:\Travaux_De_Developpement_Locaux\RECP_SJNvsJN\RECP_Projet_Dev_juillet_2025\wRECP_dev\DataBase\PatternsImages"/>
+		<item key="CopyToImageDialog.imageFormat" value="png"/>
+		<item key="CopyToImageDialog.overwriteExisting" value="false"/>
+		<item key="CopyToImageDialog.exportToHTML" value="false"/>
+	</section>
+</section>

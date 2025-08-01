@@ -1,7 +1,13 @@
 package com.ditis.recp.presentation.controller;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,10 +16,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ditis.dataaccess.dao.impl.PatternDAOImpl;
+import com.ditis.dataaccess.dao.intf.PatternDAOIntf;
+import com.ditis.recp.business.model.entity.PatternEntity;
+import com.ditis.recp.dataaccess.PatternRepository;
+
 @RestController
 public class RECPMainController{
 	
 	private ModelAndView mainPageMNV = null;
+	
+	@Autowired
+	private PatternRepository patternRepository;
 	
 	public void setMainPageMNV(ModelAndView mainPageMNV) {
 		this.mainPageMNV = mainPageMNV;
@@ -38,6 +52,13 @@ public class RECPMainController{
 							) String title
 		, Model  model) {
 		model.addAttribute("title", title);
+		// TEST READ DB
+		List<PatternEntity> patternsRead = patternRepository.findByName("MVC Name");
+		for (PatternEntity pattern : patternsRead) {
+			System.out.println("Pattern =" + pattern);
+		}
+		System.out.println("NOMBRE MVC =" + patternsRead.size());
+		// TEST READ DB
 		return this.getMainPageMNV();
 	}
 }

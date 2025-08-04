@@ -12,16 +12,17 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "pattern")
-public class PatternEntity {
-	
-	   @Id
-	   @GeneratedValue(strategy = GenerationType.IDENTITY)
-	   private Long id;
+public class PatternEntity extends RECPGenericEntity{
 
 	   private String name;
 	   private String problem;
 	   private String genericDiagramImagePath;
 	   private String exampleDiagramImagePath;
+	   
+	   @Id
+	   @GeneratedValue(strategy = GenerationType.IDENTITY)
+	   private Long id;
+
 	   
 	   public void setId(Long id) {
 		   this.id = id;

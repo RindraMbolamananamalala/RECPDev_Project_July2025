@@ -2,20 +2,20 @@ package com.ditis.dataaccess.dao.intf;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.ditis.recp.business.model.entity.PatternEntity;
-import com.ditis.recp.dataaccess.PatternRepository;
 
 /**
- * The Abstract Class (interface) regrouping any DAO(Data Access Object)-based service related to a pattern 
- * (Application of the DAO pattern on a "pattern" object). 
+ *    @author Rindra Mbolamananamalala
  */
-@Service
-public interface PatternDAOIntf {
-	
-	//public PatternEntity createPattern(PatternEntity patternEntity);
-	
-	public List<PatternEntity> findByName(String name);
+@Repository
+public interface PatternDAOIntf extends JpaRepository<PatternEntity, Long>  {
+	/**
+	 * Fetching from the Pattern DB the list of all the patterns (entity) having the same name as that of the parameter "patternName"'s value
+	 * @param patternName The name of the patterns to be fetched from the Pattern DB   
+	 * @return The list of all the patterns (entity) having the same name as that of the parameter "patternName"'s value
+	 */
+	public List<PatternEntity> findByName(String patternName);
 }

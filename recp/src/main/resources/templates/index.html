@@ -63,23 +63,24 @@
         <div class="home-container11">
           <div class="home-container12">
             <span class="home-text11">Find a pattern</span>
-            <div class="home-container13">
-              <input
-                type="text"
-                placeholder="Pattern's name"
-                id="InputPatternName"
-                name="InputPatternName"
-                class="home-textinput input"
-              />
-              <button
-                type="button"
-                id="bSearchPattern"
-                name="bSearchPattern"
-                class="button"
-              >
-                Search
-              </button>
-            </div>
+			<form action="/search_patterns" method="POST">
+	            <div class="home-container13">
+	              <input
+	                type="text"
+	                placeholder="Pattern's name"
+	                id="InputPatternName"
+	                name="inputPatternName"
+	                class="home-textinput input"
+	              />
+	              <input
+	                type="submit"
+	                id="bSearchPattern"
+	                name="bSearchPattern"
+	                class="button"
+					value="Search"
+	              />
+	            </div>
+			</form>
           </div>
           <div class="home-container14">
             <span class="home-text12">Operation to do</span>
@@ -141,14 +142,14 @@
         <div class="home-container27">
           <div class="home-container28">
             <span class="home-text16">Name:</span>
-            <span id="textPatternName" class="home-text17">
+            <span id="textPatternName" class="home-text17" th:text="${patternName} ?: _">
               variablePatternName
             </span>
           </div>
           <div class="home-container29">
             <span class="home-text18">Problem to solve:</span>
-            <span id="textPatternProblem" class="home-text19">
-              variablePatternProblemToResolve
+            <span id="textPatternProblem" class="home-text19" th:text="${patternProblemToSolve} ?: _">
+              variablePatternProblemToSolve
             </span>
           </div>
           <span class="home-text20">Generic Model</span>

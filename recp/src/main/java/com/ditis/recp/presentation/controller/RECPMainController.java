@@ -51,7 +51,9 @@ public class RECPMainController{
 	 * @return
 	 */
 	@GetMapping("/")
-	public ModelAndView mainPage() {
+	public ModelAndView mainPage(Model model) {
+		// Ensuring that the Main Page is still empty
+		clearMainPage(model);
 		return this.getMainPageMNV();
 	}
 	
@@ -71,8 +73,21 @@ public class RECPMainController{
 		// Updating the HMI (main page) with the data obtained from the RECP's Patterns DB
 	    model.addAttribute("patternName", patternRead.getName());
 	    model.addAttribute("patternProblemToSolve", patternRead.getProblem());
+	    model.addAttribute("genericDiagram", "images/diagrams/genericDiagram.png"); // Normally, at this point, the Generic Diagram is supposed 
+	    																			//to be that of the Pattern found
+		model.addAttribute("illustrationDiagram", "images/diagrams/illustrationDiagram.png");// Normally, at this point, the Illustration Diagram is supposed 
+		//to be that of the Pattern found
 	    
 	    //displaying the actualized version of the Main HMI
 	    return this.getMainPageMNV();
+	}
+	
+	/**
+	 * Emptying the content of the Main Page
+	 * @param model The current model that corresponds to the main page
+	 */
+	public void clearMainPage(Model model) {
+		model.addAttribute("genericDiagram", "images/default_diagram_img.svg");
+		model.addAttribute("illustrationDiagram", "images/default_diagram_img.svg");
 	}
 }

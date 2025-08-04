@@ -4,6 +4,8 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ditis.dataaccess.dao.intf.PatternDAOIntf;
+import com.ditis.recp.business.as.intf.PatternASIntf;
 import com.ditis.recp.business.model.entity.PatternEntity;
 
 /**
@@ -19,12 +21,13 @@ import com.ditis.recp.business.model.entity.PatternEntity;
  */
 @RestController
 @EnableJpaRepositories(basePackages = "com.ditis.dataaccess.dao.intf")
+@ComponentScan("com.ditis.recp.business.as.intf")
 public class RECPMainController{
 	
 	private ModelAndView mainPageMNV = null;
 	
 	@Autowired
-	private PatternDAOIntf patternRepository;
+	private PatternASIntf patternAS;
 	
 	public void setMainPageMNV(ModelAndView mainPageMNV) {
 		this.mainPageMNV = mainPageMNV;
@@ -48,13 +51,14 @@ public class RECPMainController{
 								, defaultValue="Référentiel d'Expertise, de Connaissances et de Pratiques"
 							) String title
 		, Model  model) {
+		System.out.println("HERERERE=");
 		model.addAttribute("title", title);
 		// TEST READ DB
-		List<PatternEntity> patternsRead = patternRepository.findByName("MVC Name");
+		List<PatternEntity> patternsRead = patternAS.findPatterns("MVC Name");
 		for (PatternEntity pattern : patternsRead) {
-			System.out.println("Pattern =" + pattern.toString());
+			System.out.println("Pattern now as=" + pattern.toString());
 		}
-		System.out.println("NOMBRE MVC =" + patternsRead.size());
+		System.out.println("NOMBRE MVC now AS=" + patternsRead.size());
 		// TEST READ DB
 		return this.getMainPageMNV();
 	}

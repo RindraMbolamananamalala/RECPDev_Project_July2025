@@ -308,8 +308,8 @@
  
 .home-image1 {
   width: 100%;
-  height: 249px;
-  object-fit: cover;
+  height: 500px;
+  object-fit: contain;
 }
  
 .home-text21 {
@@ -323,6 +323,6 @@
  
 .home-image2 {
   width: 100%;
-  height: 249px;
-  object-fit: cover;
+  height: 500px;
+  object-fit: contain;
 }

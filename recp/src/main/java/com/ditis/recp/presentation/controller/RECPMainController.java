@@ -1,11 +1,13 @@
 package com.ditis.recp.presentation.controller;
 
+import java.io.IOException;
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ditis.recp.business.as.intf.ImageASIntf;
 import com.ditis.recp.business.as.intf.PatternASIntf;
 import com.ditis.recp.business.model.entity.PatternEntity;
 
@@ -26,10 +29,22 @@ import com.ditis.recp.business.model.entity.PatternEntity;
 @ComponentScan("com.ditis.recp.business.as.intf")
 public class RECPMainController{
 	
+	@Value("${server.address}")
+	private String serverAddress;
+	
+	@Value("${server.port}")
+	private String serverPort;
+	
+	@Value("${pattern.diagramsimages.localrepository.path}")
+	private String patternsDiagramsLocalImageRepositoryPath;
+	
 	private ModelAndView mainPageMNV = null;
 	
 	@Autowired
 	private PatternASIntf patternAS;
+	
+	@Autowired 
+	private ImageASIntf imageAS;
 	
 	public void setMainPageMNV(ModelAndView mainPageMNV) {
 		this.mainPageMNV = mainPageMNV;
@@ -65,21 +80,40 @@ public class RECPMainController{
 	 */
 	@PostMapping(value="/search_patterns")
 	public ModelAndView researchPattern(String inputPatternName, Model model) {
-		String patternNameInput = inputPatternName;
-		// searching the patterns
-		List<PatternEntity> patternsRead = patternAS.findPatterns(patternNameInput);
-		// (SO FAR), only keeping the first one from the result obtained previously 
-		PatternEntity patternRead = patternsRead.get(0);
-		// Updating the HMI (main page) with the data obtained from the RECP's Patterns DB
-	    model.addAttribute("patternName", patternRead.getName());
-	    model.addAttribute("patternProblemToSolve", patternRead.getProblem());
-	    model.addAttribute("genericDiagram", "images/diagrams/genericDiagram.png"); // Normally, at this point, the Generic Diagram is supposed 
-	    																			//to be that of the Pattern found
-		model.addAttribute("illustrationDiagram", "images/diagrams/illustrationDiagram.png");// Normally, at this point, the Illustration Diagram is supposed 
-		//to be that of the Pattern found
-	    
-	    //displaying the actualized version of the Main HMI
-	    return this.getMainPageMNV();
+		try {
+			String patternNameInput = inputPatternName;
+			String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
+			// searching the patterns
+			List<PatternEntity> patternsRead = patternAS.findPatterns(patternNameInput);
+			// (SO FAR), only keeping the first one from the result obtained previously 
+			PatternEntity patternRead = patternsRead.get(0);
+			// Updating the HMI (main page) with the data obtained from the RECP's Patterns DB
+		    model.addAttribute("patternName", patternRead.getName());
+		    model.addAttribute("patternProblemToSolve", patternRead.getProblem());
+		    // Putting (Copying) the Generic & Illustration Diagrams images within the local folder for pattern's diagrams images 
+		    // which is synchronized with the Image folder of the Server (TomCat)
+		    imageAS.copyImageToServerSide(
+		    		patternRead.getGenericDiagramImagePath()
+		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getGenericDiagramImageName() + ".png"
+		    );
+		    imageAS.copyImageToServerSide(
+		    		patternRead.getExampleDiagramImagePath()
+		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getIllustrationDiagramImageName() + ".png"
+		    );
+		    // actualizing the Main HMI with the recent Data retrieved
+		    model.addAttribute("genericDiagram"
+		    						, serverImagesFolderPath + patternRead.getGenericDiagramImageName() + ".png"); 
+			model.addAttribute("illustrationDiagram"
+								, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName() + ".png");
+		    //displaying the actualized version of the Main HMI
+		    return this.getMainPageMNV();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			// there were errors so the main Page is cleared before going back there again 
+			clearMainPage(model);
+			return this.getMainPageMNV();
+		}
 	}
 	
 	/**

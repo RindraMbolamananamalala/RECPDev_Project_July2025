@@ -64,5 +64,14 @@ public class PatternEntity extends RECPGenericEntity{
 	   public String getExampleDiagramImagePath() {
 		   return this.exampleDiagramImagePath;
 	   }
+	   
+	   /**TEMPORARY**/
+	   public String getGenericDiagramImageName() {
+		   return "Pattern_n" + this.getId() + "_" + this.getName() + "_genericDiagram"; 
+	   }
+	   
+	   public String getIllustrationDiagramImageName() {
+		   return "Pattern_n" + this.getId() + "_" + this.getName() + "_illustrationDiagram"; 
+	   }
 	
 }

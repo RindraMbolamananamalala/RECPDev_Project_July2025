@@ -152,6 +152,42 @@
               variablePatternProblemToSolve
             </span>
           </div>
+		  <div class="solutionStatementContainer">
+		       <span class="home-text18">Solution Statement:</span>
+		       <span id="textSolutionStatement" class="home-text19" th:text="${patternSolutionStatement} ?: _">
+		        variableSolutionStatement
+		       </span>
+		  </div>
+		  
+		  <div class="scenarioOfApplicabilityStatementContainer">
+		  		       <span class="home-text18">Scenario Of Applicability Statement:</span>
+		  		       <span id="textScenarioOfApplicabilityStatement" class="home-text19" th:text="${patternScenarioOfApplicabilityStatement} ?: _">
+		  		        variableScenarioOfApplicabilityStatement
+		  		       </span>
+		  </div>
+		  
+		  <div class="actualSituationsFromWhichThePatternWasDeducedContainer">
+		  		       <span class="home-text18">Actual Situations From Which The Pattern Was Deduced:</span>
+		  		       <span id="textActualSituationsFromWhichThePatternWasDeduced" class="home-text19" th:text="${patternActualSituationsFromWhichThePatternWasDeduced} ?: _">
+		  		        variableActualSituationsFromWhichThePatternWasDeduced
+		  		       </span>
+		  </div>
+		  
+		  <div class="consequencesOfApplicationStatements">
+		  		  		<span class="home-text18">Consequences of Applications Statements:</span>
+		  		  		<span id="textConsequencesOfApplicationStatements" class="home-text19" th:text="${patternConsequencesOfApplicationStatements} ?: _">
+		  		  		        variableConsequencesOfApplicationStatements
+		  		  		</span>
+		  </div>
+		  
+		  <div class="implementationsHintsStatements">
+		  		  		 <span class="home-text18">Implementations Hints Statements:</span>
+		  		  		  <span id="textImplementationsHintsStatements" class="home-text19" th:text="${patternImplementationsHintsStatements} ?: _">
+		  		  		  	variableImplementationsHintsStatements
+		  		  		  </span>
+		  </div>
+
+
           <span class="home-text20">Generic Model</span>
           <img
 		   	th:src="${genericDiagram}"

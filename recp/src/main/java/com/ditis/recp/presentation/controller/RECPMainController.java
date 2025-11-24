@@ -103,8 +103,10 @@ public class RECPMainController{
 		    // actualizing the Main HMI with the recent Data retrieved
 		    model.addAttribute("genericDiagram"
 		    						, serverImagesFolderPath + patternRead.getGenericDiagramImageName() + ".png"); 
-			model.addAttribute("illustrationDiagram"
+			model.addAttribute("illustrationDiagram1"
 								, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName() + ".png");
+			model.addAttribute("illustrationDiagram2"
+					, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName() + ".png");
 		    //displaying the actualized version of the Main HMI
 		    return this.getMainPageMNV();
 		} catch (Exception e) {

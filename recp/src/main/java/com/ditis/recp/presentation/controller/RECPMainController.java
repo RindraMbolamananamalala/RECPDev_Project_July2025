@@ -90,6 +90,16 @@ public class RECPMainController{
 			// Updating the HMI (main page) with the data obtained from the RECP's Patterns DB
 		    model.addAttribute("patternName", patternRead.getName());
 		    model.addAttribute("patternProblemToSolve", patternRead.getProblem());
+		    model.addAttribute("patternSolutionStatement", patternRead.getSolutionStatement());
+		    model.addAttribute("patternForActivityObjectives", patternRead.getPatternForActivityObjectives());
+		    model.addAttribute("patternForDTSPurposes", patternRead.getPatternForDTSPurposes());
+		    model.addAttribute("patternGeneralPurpose", patternRead.getPatternGeneralPurpose());
+		    model.addAttribute("patternSystemLifeCycleRelevance", patternRead.getPatternSystemLifeCycleRelevance());
+		    model.addAttribute("patternScenarioOfApplicabilityStatement", patternRead.getScenarioOfApplicabilityStatement());
+		    model.addAttribute("patternActualSituationsFromWhichThePatternWasDeduced", patternRead.getActualSituationsFromWhichThePatternWasDeduced());
+		    model.addAttribute("patternConsequencesOfApplicationStatements", patternRead.getConsequencesOfApplicationStatements());
+		    model.addAttribute("patternImplementationsHintsStatements", patternRead.getImplementationsHintsStatements());
+		    
 		    // Putting (Copying) the Generic & Illustration Diagrams images within the local folder for pattern's diagrams images 
 		    // which is synchronized with the Image folder of the Server (TomCat)
 		    imageAS.copyImageToServerSide(

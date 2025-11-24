@@ -20,8 +20,18 @@ public class PatternEntity extends RECPGenericEntity{
 
 	   private String name;
 	   private String problem;
+	   private String solutionStatement;
+	   private String patternForActivityObjectives;
+	   private String patternForDtsPurposes;
+	   private String patternGeneralPurpose;
+	   private String patternSystemLifeCycleRelevance;
+	   private String scenarioOfApplicabilityStatement;
+	   private String actualSituationsFromWhichThePatternWasDeduced;
+	   private String consequencesOfApplicationStatements;
 	   private String genericDiagramImagePath;
 	   private String examplesDiagramsImagesPaths;
+	   private String implementationsHintsStatements;
+	   
 
 	   @Id
 	   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,6 +62,80 @@ public class PatternEntity extends RECPGenericEntity{
 	   public String getProblem() {
 		   return this.problem;
 	   }
+	   
+	   
+	   public void setSolutionStatement(String solutionStatement) {
+		   this.solutionStatement = solutionStatement;
+	   }
+		   	   
+	   public String getSolutionStatement() {
+		   return this.solutionStatement;
+	   }
+
+	   public void setPatternForActivityObjectives(String patternForActivityObjectives) {
+		   this.patternForActivityObjectives = patternForActivityObjectives;
+	   }
+		   	   
+	   public String getPatternForActivityObjectives() {
+		   return this.patternForActivityObjectives;
+	   }
+
+	   public void setPatternForDTSPurposes(String patternForDTSPurposes) {
+		   this.patternForDtsPurposes = patternForDTSPurposes;
+	   }
+		   	   
+	   public String getPatternForDTSPurposes() {
+		   return this.patternForDtsPurposes;
+	   }
+
+	   public void setPatternGeneralPurpose(String patternGeneralPurpose) {
+		   this.patternGeneralPurpose = patternGeneralPurpose;
+	   }
+		   	   
+	   public String getPatternGeneralPurpose() {
+		   return this.patternGeneralPurpose;
+	   }
+
+	   public void setPatternSystemLifeCycleRelevance(String patternSystemLifeCycleRelevance) {
+		   this.patternSystemLifeCycleRelevance = patternSystemLifeCycleRelevance;
+	   }
+		   	   
+	   public String getPatternSystemLifeCycleRelevance() {
+		   return this.patternSystemLifeCycleRelevance;
+	   }
+
+	   public void setScenarioOfApplicabilityStatement(String scenarioOfApplicabilityStatement) {
+		   this.scenarioOfApplicabilityStatement = scenarioOfApplicabilityStatement;
+	   }
+		   	   
+	   public String getScenarioOfApplicabilityStatement() {
+		   return this.scenarioOfApplicabilityStatement;
+	   }
+
+	   public void setActualSituationsFromWhichThePatternWasDeduced(String actualSituationsFromWhichThePatternWasDeduced) {
+		   this.actualSituationsFromWhichThePatternWasDeduced = actualSituationsFromWhichThePatternWasDeduced;
+	   }
+		   	   
+	   public String getActualSituationsFromWhichThePatternWasDeduced() {
+		   return this.actualSituationsFromWhichThePatternWasDeduced;
+	   }
+
+	   public void setConsequencesOfApplicationStatements(String consequencesOfApplicationStatements) {
+		   this.consequencesOfApplicationStatements = consequencesOfApplicationStatements;
+	   }
+		   	   
+	   public String getConsequencesOfApplicationStatements() {
+		   return this.consequencesOfApplicationStatements;
+	   }
+	   
+	   public void setImplementationsHintsStatements(String implementationsHintsStatements) {
+		   this.implementationsHintsStatements = implementationsHintsStatements;
+	   }
+		   	   
+	   public String getImplementationsHintsStatements() {
+		   return this.implementationsHintsStatements;
+	   }
+
 	   
 	   public void setGenericDiagramImagePath(String genericDiagramImagePath) {
 		   this.genericDiagramImagePath = genericDiagramImagePath;

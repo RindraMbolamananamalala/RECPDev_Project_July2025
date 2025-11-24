@@ -97,16 +97,20 @@ public class RECPMainController{
 		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getGenericDiagramImageName() + ".png"
 		    );
 		    imageAS.copyImageToServerSide(
-		    		patternRead.getExampleDiagramImagePath()
-		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getIllustrationDiagramImageName() + ".png"
+		    		patternRead.getExamplesDiagramsImagesPaths().get(0)
+		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getIllustrationDiagramImageName(1) + ".png"
+		    );
+		    imageAS.copyImageToServerSide(
+		    		patternRead.getExamplesDiagramsImagesPaths().get(1)
+		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getIllustrationDiagramImageName(2) + ".png"
 		    );
 		    // actualizing the Main HMI with the recent Data retrieved
 		    model.addAttribute("genericDiagram"
 		    						, serverImagesFolderPath + patternRead.getGenericDiagramImageName() + ".png"); 
 			model.addAttribute("illustrationDiagram1"
-								, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName() + ".png");
+								, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName(1) + ".png");
 			model.addAttribute("illustrationDiagram2"
-					, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName() + ".png");
+					, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName(2) + ".png");
 		    //displaying the actualized version of the Main HMI
 		    return this.getMainPageMNV();
 		} catch (Exception e) {

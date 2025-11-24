@@ -1,6 +1,10 @@
 package com.ditis.recp.business.model.entity;
 
 
+
+import java.util.Arrays;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,8 +21,8 @@ public class PatternEntity extends RECPGenericEntity{
 	   private String name;
 	   private String problem;
 	   private String genericDiagramImagePath;
-	   private String exampleDiagramImagePath;
-	   
+	   private String examplesDiagramsImagesPaths;
+
 	   @Id
 	   @GeneratedValue(strategy = GenerationType.IDENTITY)
 	   private Long id;
@@ -57,21 +61,22 @@ public class PatternEntity extends RECPGenericEntity{
 		   return this.genericDiagramImagePath;
 	   }
 	   
-	   public void setExampleDiagramImagePath(String exampleDiagramImagePath) {
-		   this.exampleDiagramImagePath = exampleDiagramImagePath;
+	   public void setExamplesDiagramsImagesPaths(String examplesDiagramsImagesPaths) {
+		   this.examplesDiagramsImagesPaths = examplesDiagramsImagesPaths;
 	   }
 	   
-	   public String getExampleDiagramImagePath() {
-		   return this.exampleDiagramImagePath;
+	   public List<String> getExamplesDiagramsImagesPaths() {
+		   //transforming the String value into its equivalent in List
+		   return Arrays.asList(this.examplesDiagramsImagesPaths.split(";"));
 	   }
 	   
-	   /**TEMPORARY**/
+	   /**VERY TEMPORARY**/
 	   public String getGenericDiagramImageName() {
 		   return "Pattern_n" + this.getId() + "_" + this.getName() + "_genericDiagram"; 
 	   }
 	   
-	   public String getIllustrationDiagramImageName() {
-		   return "Pattern_n" + this.getId() + "_" + this.getName() + "_illustrationDiagram"; 
+	   public String getIllustrationDiagramImageName(int illustrationNumber) {
+		   return "Pattern_n" + this.getId() + "_" + this.getName() + "_illustrationDiagram" + illustrationNumber; 
 	   }
 	
 }

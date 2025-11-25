@@ -44,6 +44,7 @@
   font-style: normal;
   text-align: left;
   font-weight: 700;
+  color: #010713;
 }
  
 .home-container13 {
@@ -58,6 +59,13 @@
 .home-textinput {
   width: 310px;
   height: 36px;
+  color: #23F7C6;
+    cursor: auto;
+    padding: 0.5rem 1rem;
+    border-color: #23F7C6;
+    border-width: 2px;
+    border-radius: 4px;
+    background-color: #DEF9FF;
 }
  
 .home-container14 {
@@ -76,6 +84,7 @@
   margin-top: 20px;
   text-align: left;
   font-weight: 700;
+  color: #010713;
 }
  
 .home-container15 {
@@ -313,7 +322,6 @@
  
 .home-image1 {
   width: 100%;
-  height: 500px;
   object-fit: contain;
 }
  
@@ -328,7 +336,6 @@
  
 .home-image2 {
   width: 100%;
-  height: 500px;
   object-fit: contain;
 }
 
@@ -342,12 +349,43 @@
 , .consequencesOfApplicationStatements
 , .implementationsHintsStatements
 , .exampleOfApplicationStatements1Container
-, .exampleOfApplicationStatements2Container{
-	padding-bottom: 50px;
+, .exampleOfApplicationStatements2Container
+, .home-image1
+, .home-image2 {
+	margin-bottom: 50px;
+}
+
+.home-image1
+, .home-image2
+, img.illustration-model
+, .home-textinput input {
+	border : 3px solid #23F7C6;
 }
 
 
-.buttonSearchPattern{
-	font-size: 26px;
-	cursor: pointer;
+.buttonSearchPattern {
+    font-size: 26px;
+    cursor: pointer;
+    color: #010713;
+    background-color: #1DCCA4;
+}
+
+body{
+	background: #010713;
+	background: radial-gradient(circle, rgba(1, 7, 19, 0.85) 75%, rgba(2, 81, 66, 1) 97%, rgba(250, 250, 250, 0) 100%);
+	color: white;
+}
+
+.home-text13
+, .home-text14
+, .home-text15{
+	color: #010713;
+}
+
+.home-text16
+, .home-text18
+, .home-text20
+, .home-text21
+, .illustration-model{
+	color: #1DCCA4;
 }

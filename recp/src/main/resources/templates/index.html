@@ -210,7 +210,7 @@
 		  		  		  </span>
 		  </div>
 
-
+		  
           <span class="home-text20">Generic Model</span>
           <img
 		   	th:src="${genericDiagram}"
@@ -218,6 +218,12 @@
             id="ImgPatternGenericModel"
             class="home-image1"
           />
+		  <div class="exampleOfApplicationStatements1Container">
+		  		  		  		  		 <span class="home-text18">Example Of Application Statements 1:</span>
+		  		  		  		  		  <span id="textExampleOfApplicationStatements1" class="home-text19" th:text="${patternExampleOfApplicationStatements1} ?: _">
+		  		  		  		  		  	variableExampleOfApplicationStatements1
+		  		  		  		  		  </span>
+		  </div>
           <span class="home-text21">Illustration Model 1: </span>
           <img
             th:src="${illustrationDiagram1}"
@@ -225,6 +231,12 @@
             id="ImgPatternIllustrationModel"
             class="home-image2"
           />
+		  <div class="exampleOfApplicationStatements2Container">
+		  	<span class="home-text18">Example Of Application Statements 2:</span>
+		  	<span id="textExampleOfApplicationStatements2" class="home-text19" th:text="${patternExampleOfApplicationStatements2} ?: _">
+		  		variableExampleOfApplicationStatements2
+		  	</span>
+		  </div>
 		  <span class="home-text21">Illustration Model 2: </span>
 		            <img
 		              th:src="${illustrationDiagram2}"

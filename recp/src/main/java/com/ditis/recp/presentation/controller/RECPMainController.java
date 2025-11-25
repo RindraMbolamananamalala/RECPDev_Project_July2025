@@ -100,8 +100,13 @@ public class RECPMainController{
 		    model.addAttribute("patternConsequencesOfApplicationStatements", patternRead.getConsequencesOfApplicationStatements());
 		    model.addAttribute("patternImplementationsHintsStatements", patternRead.getImplementationsHintsStatements());
 		    
+		    /** VERY TEMPORARY, only 2 examples of applications statements are handled by the available version of the RECP **/
+		    model.addAttribute("patternExampleOfApplicationStatements1", patternRead.getExamplesOfApplicationsStatements().get(0));
+		    model.addAttribute("patternExampleOfApplicationStatements2", patternRead.getExamplesOfApplicationsStatements().get(1));
+		    
 		    // Putting (Copying) the Generic & Illustration Diagrams images within the local folder for pattern's diagrams images 
 		    // which is synchronized with the Image folder of the Server (TomCat)
+		    /** VERY TEMPORARY, only 2 examples of applications diagrams are handled by the available version of the RECP **/
 		    imageAS.copyImageToServerSide(
 		    		patternRead.getGenericDiagramImagePath()
 		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getGenericDiagramImageName() + ".png"

@@ -2,6 +2,7 @@ package com.ditis.recp.business.model.entity;
 
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,8 +30,10 @@ public class PatternEntity extends RECPGenericEntity{
 	   private String actualSituationsFromWhichThePatternWasDeduced;
 	   private String consequencesOfApplicationStatements;
 	   private String genericDiagramImagePath;
+	   private String examplesOfApplicationsStatements;
 	   private String examplesDiagramsImagesPaths;
 	   private String implementationsHintsStatements;
+	   
 	   
 
 	   @Id
@@ -144,6 +147,26 @@ public class PatternEntity extends RECPGenericEntity{
 	   public String getGenericDiagramImagePath() {
 		   return this.genericDiagramImagePath;
 	   }
+	   
+	   public void setExamplesOfApplicationsStatements(String examplesOfApplicationsStatements){
+		   this.examplesOfApplicationsStatements = examplesOfApplicationsStatements;
+	   }
+	   
+	   /**
+	    * 
+	    * @return The list of examples of applications statements related to the current Pattern object  
+	    */
+	   public List<String> getExamplesOfApplicationsStatements() {
+		   //transforming the String value into its equivalent in List
+		   List<String> listToReturn = new ArrayList<String>();
+		   // only taking into account non-void string (because a statement can't be void) 
+		   List<String> rawListOfStatements = Arrays.asList(this.examplesOfApplicationsStatements.split("\\[statement\\]"));
+		   for (String s : rawListOfStatements)
+			   if (!s.equals(""))
+				   listToReturn.add(s);
+		   return listToReturn;
+	   }
+
 	   
 	   public void setExamplesDiagramsImagesPaths(String examplesDiagramsImagesPaths) {
 		   this.examplesDiagramsImagesPaths = examplesDiagramsImagesPaths;

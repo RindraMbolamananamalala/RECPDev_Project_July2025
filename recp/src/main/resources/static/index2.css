@@ -352,6 +352,7 @@
 , .exampleOfApplicationStatements2Container
 , .home-image1
 , .home-image2 {
+	/* Standardizing the margin at the end of each container related to an information on a Pattern. */
 	margin-bottom: 50px;
 }
 
@@ -359,11 +360,13 @@
 , .home-image2
 , img.illustration-model
 , .home-textinput input {
+	/* Adding the same border to any image to be displayed on the RECP's HMI */
 	border : 3px solid #23F7C6;
 }
 
 
 .buttonSearchPattern {
+	/* Customizing the presentation of the button dedicated to the "Search Pattern" process */
     font-size: 26px;
     cursor: pointer;
     color: #010713;
@@ -371,14 +374,17 @@
 }
 
 body{
+	/* Configuring the background of the entire Body of the RECP's HMI */
 	background: #010713;
 	background: radial-gradient(circle, rgba(1, 7, 19, 0.85) 75%, rgba(2, 81, 66, 1) 97%, rgba(250, 250, 250, 0) 100%);
+	/* Standardizing the general text (non-specific ones) color throughout the entire RECP's HMI */
 	color: white;
 }
 
 .home-text13
 , .home-text14
 , .home-text15{
+	/* Configuring the color of the labels within the area dedicated to the Search of Patterns */
 	color: #010713;
 }
 
@@ -387,5 +393,6 @@ body{
 , .home-text20
 , .home-text21
 , .illustration-model{
+	/* Configuring the color of the labels annoucning the informations on a Pattern */
 	color: #1DCCA4;
 }

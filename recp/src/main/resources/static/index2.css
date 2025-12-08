@@ -358,7 +358,7 @@
 
 .home-image1
 , .home-image2
-, img.illustration-model
+/* , img.illustration-model*/
 , .home-textinput input {
 	/* Adding the same border to any image to be displayed on the RECP's HMI */
 	border : 3px solid #23F7C6;

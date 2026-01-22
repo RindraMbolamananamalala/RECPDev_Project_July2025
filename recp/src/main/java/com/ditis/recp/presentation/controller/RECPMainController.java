@@ -73,37 +73,20 @@ public class RECPMainController{
 	}
 	
 	/**
-	 * Searching the list of patterns that have the same name as that specified by the user within the 'Pattern's name" input text 
-	 * @param inputPatternName The name of the patterns to search
+	 * Searching and displaying the list of patterns that have the same name as that specified by the user within the 'Pattern's name" input text 
+	 * @param inputPatternName The name of the patterns to SEARCH
 	 * @param model The current model being used by the RECP Application
-	 * @return The actualized (with patterns' data retrieved from the RECP's patterns DB) version of the main page
+	 * @return The actualized (with patterns' data retrieved from the RECP's patterns DB) version of the main page (displayed)
 	 */
-	@PostMapping(value="/search_patterns")
+	@PostMapping(value="/search_and_display_patterns")
 	public ModelAndView researchPattern(String inputPatternName, Model model) {
+		// Setting up local variables
+		String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
 		try {
-			String patternNameInput = inputPatternName;
-			String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
-			// searching the patterns
-			List<PatternEntity> patternsRead = patternAS.findPatterns(patternNameInput);
-			// (SO FAR), only keeping the first one from the result obtained previously 
-			PatternEntity patternRead = patternsRead.get(0);
-			// Updating the HMI (main page) with the data obtained from the RECP's Patterns DB
-		    model.addAttribute("patternName", patternRead.getName());
-		    model.addAttribute("patternProblemToSolve", patternRead.getProblem());
-		    model.addAttribute("patternSolutionStatement", patternRead.getSolutionStatement());
-		    model.addAttribute("patternForActivityObjectives", patternRead.getPatternForActivityObjectives());
-		    model.addAttribute("patternForDTSPurposes", patternRead.getPatternForDTSPurposes());
-		    model.addAttribute("patternGeneralPurpose", patternRead.getPatternGeneralPurpose());
-		    model.addAttribute("patternSystemLifeCycleRelevance", patternRead.getPatternSystemLifeCycleRelevance());
-		    model.addAttribute("patternScenarioOfApplicabilityStatement", patternRead.getScenarioOfApplicabilityStatement());
-		    model.addAttribute("patternActualSituationsFromWhichThePatternWasDeduced", patternRead.getActualSituationsFromWhichThePatternWasDeduced());
-		    model.addAttribute("patternConsequencesOfApplicationStatements", patternRead.getConsequencesOfApplicationStatements());
-		    model.addAttribute("patternImplementationsHintsStatements", patternRead.getImplementationsHintsStatements());
-		    
-		    /** VERY TEMPORARY, only 2 examples of applications statements are handled by the available version of the RECP **/
-		    model.addAttribute("patternExampleOfApplicationStatements1", patternRead.getExamplesOfApplicationsStatements().get(0));
-		    model.addAttribute("patternExampleOfApplicationStatements2", patternRead.getExamplesOfApplicationsStatements().get(1));
-		    
+			
+			// launching the SEARCH of Patterns
+			PatternEntity patternRead = this.launchPatternSearch(inputPatternName, model);
+			
 		    // Putting (Copying) the Generic & Illustration Diagrams images within the local folder for pattern's diagrams images 
 		    // which is synchronized with the Image folder of the Server (TomCat)
 		    /** VERY TEMPORARY, only 2 examples of applications diagrams are handled by the available version of the RECP **/
@@ -137,6 +120,7 @@ public class RECPMainController{
 		}
 	}
 	
+//	
 	/**
 	 * Emptying the content of the Main Page
 	 * @param model The current model that corresponds to the main page
@@ -144,5 +128,42 @@ public class RECPMainController{
 	public void clearMainPage(Model model) {
 		model.addAttribute("genericDiagram", "images/default_diagram_img.svg");
 		model.addAttribute("illustrationDiagram", "images/default_diagram_img.svg");
+	}
+	
+	/**
+	 * Launching the actual process and activities of Pattern SEARCH from a pattern's name specified as argument
+	 * @param inputPatternName The name of the patterns to SEARCH
+	 * @param model The current model (M of MVC pattern) being used by the RECP Application
+	 * @return (VERY TEMPORARY) The first Pattern Entity of the list of patterns found from the specified name
+	 */
+	private PatternEntity launchPatternSearch(String inputPatternName, Model model) {
+		try {
+			String patternNameInput = inputPatternName;
+			// searching the patterns
+			List<PatternEntity> patternsRead = patternAS.findPatterns(patternNameInput);
+			// (SO FAR), only keeping the first one from the result obtained previously 
+			PatternEntity patternRead = patternsRead.get(0);
+			// Updating the Model part ("M" of the MVC pattern) with the data obtained from the RECP's Patterns DB
+		    model.addAttribute("patternName", patternRead.getName());
+		    model.addAttribute("patternProblemToSolve", patternRead.getProblem());
+		    model.addAttribute("patternSolutionStatement", patternRead.getSolutionStatement());
+		    model.addAttribute("patternForActivityObjectives", patternRead.getPatternForActivityObjectives());
+		    model.addAttribute("patternForDTSPurposes", patternRead.getPatternForDTSPurposes());
+		    model.addAttribute("patternGeneralPurpose", patternRead.getPatternGeneralPurpose());
+		    model.addAttribute("patternSystemLifeCycleRelevance", patternRead.getPatternSystemLifeCycleRelevance());
+		    model.addAttribute("patternScenarioOfApplicabilityStatement", patternRead.getScenarioOfApplicabilityStatement());
+		    model.addAttribute("patternActualSituationsFromWhichThePatternWasDeduced", patternRead.getActualSituationsFromWhichThePatternWasDeduced());
+		    model.addAttribute("patternConsequencesOfApplicationStatements", patternRead.getConsequencesOfApplicationStatements());
+		    model.addAttribute("patternImplementationsHintsStatements", patternRead.getImplementationsHintsStatements());
+		    
+		    /** VERY TEMPORARY, only 2 examples of applications statements are handled by the available version of the RECP **/
+		    model.addAttribute("patternExampleOfApplicationStatements1", patternRead.getExamplesOfApplicationsStatements().get(0));
+		    model.addAttribute("patternExampleOfApplicationStatements2", patternRead.getExamplesOfApplicationsStatements().get(1));
+		    return patternRead;
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.err.println(e.getMessage());
+			return null;
+		}
 	}
 }

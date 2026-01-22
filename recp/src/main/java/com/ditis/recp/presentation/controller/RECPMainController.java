@@ -79,7 +79,7 @@ public class RECPMainController{
 	 * @return The actualized (with patterns' data retrieved from the RECP's patterns DB) version of the main page (displayed)
 	 */
 	@PostMapping(value="/search_and_display_patterns")
-	public ModelAndView researchPattern(String inputPatternName, Model model) {
+	public ModelAndView researchAndDisplayPattern(String inputPatternName, Model model) {
 		// Setting up local variables
 		String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
 		try {
@@ -120,7 +120,25 @@ public class RECPMainController{
 		}
 	}
 	
+	/**
+	 * Searching the list of patterns that have the same name as that specified by the user within the 'Pattern's name" input text 
+	 * @param inputPatternName The name of the patterns to SEARCH
+	 * @param model The current model being used by the RECP Application
+	 * @return (VERY TEMPORARY) The first Pattern Entity of the list of patterns found from the specified name
+	 */
+	@GetMapping(value="/search_patterns")
+	public PatternEntity researchPattern(String inputPatternName, Model model) {
+		try {
+			return this.launchPatternSearch(inputPatternName, model);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.err.print(e.getMessage());
+			return null;
+		}
+	}
 	
+		
+		
 	/**
 	 * Emptying the content of the Main Page
 	 * @param model The current model that corresponds to the main page

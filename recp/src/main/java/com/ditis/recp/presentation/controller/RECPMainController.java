@@ -120,7 +120,7 @@ public class RECPMainController{
 		}
 	}
 	
-//	
+	
 	/**
 	 * Emptying the content of the Main Page
 	 * @param model The current model that corresponds to the main page

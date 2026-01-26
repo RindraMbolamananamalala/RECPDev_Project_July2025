@@ -126,8 +126,8 @@ public class RECPMainController{
 	 * @param model The current model being used by the RECP Application
 	 * @return (VERY TEMPORARY) The first Pattern Entity of the list of patterns found from the specified name
 	 */
-	@GetMapping(value="/search_patterns")
-	public PatternEntity researchPattern(String inputPatternName, Model model) {
+	@GetMapping(value="/search_patterns", params = "inputPatternName", name = "test_search_pattern")
+	public PatternEntity researchPattern(@RequestParam String inputPatternName, Model model) {
 		try {
 			return this.launchPatternSearch(inputPatternName, model);
 		} catch (Exception e) {

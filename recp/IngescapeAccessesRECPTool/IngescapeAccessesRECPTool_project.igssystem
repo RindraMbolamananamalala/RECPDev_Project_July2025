@@ -1,0 +1,355 @@
+{
+    "extensions": {
+        "eventsTimeline": {
+            "events": [
+            ],
+            "patterns": [
+            ],
+            "timelines": [
+                {
+                    "eventInstances": [
+                    ],
+                    "name": "Timeline_1",
+                    "order": 0,
+                    "patternInstances": [
+                    ]
+                }
+            ]
+        }
+    },
+    "library": {
+        "classes": [
+            {
+                "className": "Time",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "paceChecker",
+                            "type": "IMPULSION"
+                        },
+                        {
+                            "name": "paceChecker2",
+                            "type": "IMPULSION"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "20Hz",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "5Hz",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "1Hz",
+                            "type": "INTEGER"
+                        },
+                        {
+                            "name": "randomDouble",
+                            "type": "DOUBLE"
+                        },
+                        {
+                            "name": "randomString",
+                            "type": "STRING"
+                        },
+                        {
+                            "detailed_type": "e79d75fe-e2ba-45cf-981b-c1cd0d55115c",
+                            "name": "randomCoordinates",
+                            "type": "DATA"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "ingescape::internal",
+                "plugin": "ingescape_class",
+                "uuid": "ac05bcf3-fb48-4131-b00a-272c113ef680",
+                "version": "1.0"
+            },
+            {
+                "className": "Weather",
+                "color": 0,
+                "definition": {
+                    "attributes": [
+                        {
+                            "name": "apiKey",
+                            "type": "STRING"
+                        }
+                    ],
+                    "inputs": [
+                        {
+                            "name": "city",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "country",
+                            "type": "STRING"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "weatherReport",
+                            "type": "STRING"
+                        }
+                    ],
+                    "services": [
+                        {
+                            "arguments": [
+                                {
+                                    "name": "city",
+                                    "type": "STRING"
+                                },
+                                {
+                                    "name": "country",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "getWeatherByCity",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "report",
+                                            "type": "STRING"
+                                        },
+                                        {
+                                            "name": "weather_name",
+                                            "type": "STRING"
+                                        },
+                                        {
+                                            "name": "weather_lat",
+                                            "type": "DOUBLE"
+                                        },
+                                        {
+                                            "name": "weather_lon",
+                                            "type": "DOUBLE"
+                                        },
+                                        {
+                                            "name": "weather_description",
+                                            "type": "STRING"
+                                        },
+                                        {
+                                            "name": "weather_icon",
+                                            "type": "STRING"
+                                        },
+                                        {
+                                            "name": "weather_temp",
+                                            "type": "DOUBLE"
+                                        },
+                                        {
+                                            "name": "weather_temp_min",
+                                            "type": "DOUBLE"
+                                        },
+                                        {
+                                            "name": "weather_temp_max",
+                                            "type": "DOUBLE"
+                                        },
+                                        {
+                                            "name": "weather_humidity",
+                                            "type": "INTEGER"
+                                        },
+                                        {
+                                            "name": "weather_pressure",
+                                            "type": "INTEGER"
+                                        },
+                                        {
+                                            "name": "weather_visibility",
+                                            "type": "INTEGER"
+                                        },
+                                        {
+                                            "name": "weather_speed",
+                                            "type": "DOUBLE"
+                                        }
+                                    ],
+                                    "name": "weatherResult"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "ingescape::network",
+                "plugin": "ingescape_class",
+                "uuid": "2f8997ba-9ab7-4a24-a54f-607b139f30dc",
+                "version": "0.0.2"
+            },
+            {
+                "className": "RECPClass",
+                "color": 0,
+                "definition": {
+                    "services": [
+                        {
+                            "arguments": [
+                                {
+                                    "name": "patternName",
+                                    "type": "STRING"
+                                }
+                            ],
+                            "name": "find_patterns",
+                            "replies": [
+                                {
+                                    "arguments": [
+                                        {
+                                            "name": "patternEntityInformations",
+                                            "type": "STRING"
+                                        }
+                                    ],
+                                    "name": "patternFound"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "7ccaae3a-a69f-4e41-904b-a536d1371328",
+                "version": ""
+            }
+        ],
+        "detailedTypes": [
+            {
+                "name": "PROTOBUF::gps",
+                "specification": "syntax = \"proto3\"; message gps { double latitude = 1; double longitude = 2; double altitude = 3;}",
+                "uuid": "e79d75fe-e2ba-45cf-981b-c1cd0d55115c"
+            }
+        ]
+    },
+    "systemViews": [
+        {
+            "children": [
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsMQTT.exe\" --port 5670 --name MQTT --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --broker tcp://localhost:1883 --topics search_pattern-by_name --device Wi-Fi",
+                                "isAttachedToCircle": true,
+                                "uuid": "339051d9-f4d2-49fa-ba3d-8d36c0d745ab"
+                            },
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsMQTT.exe\" --port 5670 --name MQTT --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --broker tcp://localhost:1883",
+                                "isAttachedToCircle": true,
+                                "uuid": "9c53b13b-ef4a-43a7-b9f4-a576856a10f6"
+                            }
+                        ]
+                    },
+                    "class": "D42A966E11324A978755ED8E9BD26B9F",
+                    "data": {
+                        "topics": [
+                            "search_pattern-by_name"
+                        ]
+                    },
+                    "height": 166.9754050895774,
+                    "name": "MQTT",
+                    "simulationTime": 5000,
+                    "uuid": "158d3c59-cdb5-4278-8dcd-e3840e499f80",
+                    "width": 323.4049089471531,
+                    "x": 11931.565972635317,
+                    "y": -3662.1215629077356
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "Test_string7"
+                        ],
+                        "value_type": "STRING"
+                    },
+                    "height": 88,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
+                    "width": 250,
+                    "x": 11113.76563666293,
+                    "y": -4135.168555769742
+                },
+                {
+                    "data": {
+                        "data_decoder": "BINARY",
+                        "mostRecentFirst": true,
+                        "msg_type": "",
+                        "proto_file_path": "",
+                        "showTimestamps": true,
+                        "string_decoder": "PLAIN_TEXT"
+                    },
+                    "height": 75,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.observer",
+                    "uuid": "ce5ae1f2-59ca-4eb1-87ee-dd55ce570ca0",
+                    "width": 250,
+                    "x": 12227.569803897732,
+                    "y": -4077.9628602234798
+                },
+                {
+                    "data": {
+                        "arguments": [
+                        ],
+                        "selectedAgentUuid": "",
+                        "selectedService": ""
+                    },
+                    "height": 64,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.servicecaller",
+                    "uuid": "6be9363f-ef13-437d-9abb-6fd6e109c9db",
+                    "width": 350,
+                    "x": 9398.962812973892,
+                    "y": -3486.9930903852783
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\"",
+                                "isAttachedToCircle": true,
+                                "uuid": "93e84e04-8e96-4744-a5b4-622bc48c7a05"
+                            }
+                        ]
+                    },
+                    "class": "48879EBE0FBC48D8B429F11510954D9B",
+                    "height": 237.63934145762153,
+                    "name": "Proxy",
+                    "simulationTime": 5000,
+                    "uuid": "bbe15ca3-55a2-4cb9-9a9a-17893d37b2e6",
+                    "width": 229.9495681489243,
+                    "x": 10199.309833751537,
+                    "y": -3950.7173710231345
+                }
+            ],
+            "links": {
+                "others": [
+                    {
+                        "destination": "158d3c59-cdb5-4278-8dcd-e3840e499f80",
+                        "destinationIO": {
+                            "name": "search_pattern-by_name",
+                            "type": "INPUT"
+                        },
+                        "source": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
+                        "sourceIO": {
+                            "name": "value",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "ce5ae1f2-59ca-4eb1-87ee-dd55ce570ca0",
+                        "destinationIO": {
+                            "name": "wildcard",
+                            "type": "INPUT"
+                        },
+                        "source": "158d3c59-cdb5-4278-8dcd-e3840e499f80",
+                        "sourceIO": {
+                            "name": "search_pattern-by_name",
+                            "type": "OUTPUT"
+                        }
+                    }
+                ]
+            },
+            "name": "Main view"
+        }
+    ]
+}

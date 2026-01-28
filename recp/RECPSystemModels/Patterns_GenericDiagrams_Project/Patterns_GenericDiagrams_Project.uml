@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks">
   <uml:Model xmi:id="_VR3ZkGySEfCSnqVOFxkkdw" name="Patterns_GenericDiagrams_Project">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_D2iJ0PuaEfCHPf21WSHTTA" annotatedElement="_7fNr0PuUEfCHPf21WSHTTA">
+      <body>A DTS-Related  system could be:&#xD;
+- A tool necessary for the modeling, the design, the simulation, the implementation, the deployment, the Verification &amp; the Validation ... of A DTS;&#xD;
+- A sub-system of a DTS (Gregory et al.2024) :Digital Twin Entity, Connection/Synchornization Layer, HMIs, DBMs....&#xD;
+- A sub-system of a DTS' sub-system's (Simulation Model, AI Model...)&#xD;
+... </body>
+    </ownedComment>
     <packageImport xmi:type="uml:PackageImport" xmi:id="_VYov8mySEfCSnqVOFxkkdw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
     </packageImport>
@@ -76,6 +83,68 @@
       </eAnnotations>
       <ownedEnd xmi:type="uml:Property" xmi:id="_B61WomyWEfCSnqVOFxkkdw" name="ctrl" type="_xqn3gGyVEfCSnqVOFxkkdw" association="_B6zhcGyWEfCSnqVOFxkkdw"/>
     </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_70yFcPuPEfCHPf21WSHTTA" name="MQTTBroker">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_IJfYUPuQEfCHPf21WSHTTA" name="clients" type="_AmW-EPuQEfCHPf21WSHTTA" aggregation="shared" association="_IJcVAPuQEfCHPf21WSHTTA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SzHCYPuQEfCHPf21WSHTTA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Szfc4PuQEfCHPf21WSHTTA" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_AmW-EPuQEfCHPf21WSHTTA" name="IClient" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_IJcVAPuQEfCHPf21WSHTTA" memberEnd="_IJfYUPuQEfCHPf21WSHTTA _IJgmcPuQEfCHPf21WSHTTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IJexQPuQEfCHPf21WSHTTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IJexQfuQEfCHPf21WSHTTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_IJgmcPuQEfCHPf21WSHTTA" name="mqttbroker" type="_70yFcPuPEfCHPf21WSHTTA" association="_IJcVAPuQEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_n4SsYPuQEfCHPf21WSHTTA" name="ISubscriber" isAbstract="true">
+      <generalization xmi:type="uml:Generalization" xmi:id="_tTw2kPuQEfCHPf21WSHTTA" general="_AmW-EPuQEfCHPf21WSHTTA"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_uPmzwPuQEfCHPf21WSHTTA" name="subscribe">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_e6EQUPuUEfCHPf21WSHTTA" name="topicsOfSubscriptions" type="_wcosAPuQEfCHPf21WSHTTA"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_r3DoAPuQEfCHPf21WSHTTA" name="IPublisher" isAbstract="true">
+      <generalization xmi:type="uml:Generalization" xmi:id="_ts0PwPuQEfCHPf21WSHTTA" general="_AmW-EPuQEfCHPf21WSHTTA"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_vKd5gPuQEfCHPf21WSHTTA" name="publish">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_zLPDcPuUEfCHPf21WSHTTA" name="topicsOfPublications" type="_wcosAPuQEfCHPf21WSHTTA"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_wcosAPuQEfCHPf21WSHTTA" name="Topic">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_R6VDcPuUEfCHPf21WSHTTA" name="topic_label">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_z2LasPuQEfCHPf21WSHTTA" visibility="private" memberEnd="_z2Mo0PuQEfCHPf21WSHTTA _z2Mo0fuQEfCHPf21WSHTTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z2MBwPuQEfCHPf21WSHTTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z2MBwfuQEfCHPf21WSHTTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_z2Mo0PuQEfCHPf21WSHTTA" name="topics" type="_wcosAPuQEfCHPf21WSHTTA" association="_z2LasPuQEfCHPf21WSHTTA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Q-XxgPuUEfCHPf21WSHTTA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q-ftUPuUEfCHPf21WSHTTA" value="*"/>
+      </ownedEnd>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_z2Mo0fuQEfCHPf21WSHTTA" name="mqttbroker" type="_70yFcPuPEfCHPf21WSHTTA" association="_z2LasPuQEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_7fNr0PuUEfCHPf21WSHTTA" name="IDTSRelatedSystem" isAbstract="true"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_AxuHQPuVEfCHPf21WSHTTA" name="System_1">
+      <generalization xmi:type="uml:Generalization" xmi:id="_GGfMgPuVEfCHPf21WSHTTA" general="_7fNr0PuUEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_SvlbAPuVEfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_TSJVgPuVEfCHPf21WSHTTA" general="_r3DoAPuQEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_DOTecPuVEfCHPf21WSHTTA" name="System_2">
+      <generalization xmi:type="uml:Generalization" xmi:id="_GiXQMPuVEfCHPf21WSHTTA" general="_7fNr0PuUEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_TvnUoPuVEfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Ems0wPuVEfCHPf21WSHTTA" name="System_3">
+      <generalization xmi:type="uml:Generalization" xmi:id="_G_obAPuVEfCHPf21WSHTTA" general="_7fNr0PuUEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_R1DvoPuZEfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_qTtP0PuZEfCHPf21WSHTTA" general="_r3DoAPuQEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_H5QxsPuVEfCHPf21WSHTTA" name="System_2_1">
+      <generalization xmi:type="uml:Generalization" xmi:id="_NGlyMPuVEfCHPf21WSHTTA" general="_DOTecPuVEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MEElQPuVEfCHPf21WSHTTA" name="System_2_2">
+      <generalization xmi:type="uml:Generalization" xmi:id="_NgNMEPuVEfCHPf21WSHTTA" general="_DOTecPuVEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_V0bsEPuVEfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_VV6zIGySEfCSnqVOFxkkdw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VV8BQGySEfCSnqVOFxkkdw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#/"/>
@@ -143,4 +212,13 @@
   <Blocks:Block xmi:id="_xqsI8GyVEfCSnqVOFxkkdw" base_Class="_xqn3gGyVEfCSnqVOFxkkdw"/>
   <Blocks:Block xmi:id="_0z25UWyVEfCSnqVOFxkkdw" base_Class="_0z25UGyVEfCSnqVOFxkkdw"/>
   <Blocks:Block xmi:id="_4Ad_QGyVEfCSnqVOFxkkdw" base_Class="_4Aa78GyVEfCSnqVOFxkkdw"/>
+  <Blocks:Block xmi:id="_72adIPuPEfCHPf21WSHTTA" base_Class="_70yFcPuPEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_n4YzAPuQEfCHPf21WSHTTA" base_Class="_n4SsYPuQEfCHPf21WSHTTA" isEncapsulated="true"/>
+  <Blocks:Block xmi:id="_r3IggPuQEfCHPf21WSHTTA" base_Class="_r3DoAPuQEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_wcsWYPuQEfCHPf21WSHTTA" base_Class="_wcosAPuQEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_AxxxoPuVEfCHPf21WSHTTA" base_Class="_AxuHQPuVEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_DOXI0PuVEfCHPf21WSHTTA" base_Class="_DOTecPuVEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_Emv4EPuVEfCHPf21WSHTTA" base_Class="_Ems0wPuVEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_H5TN8PuVEfCHPf21WSHTTA" base_Class="_H5QxsPuVEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_MEHokPuVEfCHPf21WSHTTA" base_Class="_MEElQPuVEfCHPf21WSHTTA"/>
 </xmi:XMI>

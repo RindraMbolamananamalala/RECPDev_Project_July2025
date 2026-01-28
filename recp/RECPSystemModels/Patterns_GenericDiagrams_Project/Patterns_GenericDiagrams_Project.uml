@@ -88,6 +88,10 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SzHCYPuQEfCHPf21WSHTTA"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Szfc4PuQEfCHPf21WSHTTA" value="*"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_bT9l4vxQEfCHPf21WSHTTA" name="idtsrelatedcomponentimplementertomakeinteroperable" type="_K02E4PxMEfCHPf21WSHTTA" association="_bT8-0PxQEfCHPf21WSHTTA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_bT9l4_xQEfCHPf21WSHTTA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_bT9l5PxQEfCHPf21WSHTTA" value="1"/>
+      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_AmW-EPuQEfCHPf21WSHTTA" name="IClient" isAbstract="true"/>
     <packagedElement xmi:type="uml:Association" xmi:id="_IJcVAPuQEfCHPf21WSHTTA" memberEnd="_IJfYUPuQEfCHPf21WSHTTA _IJgmcPuQEfCHPf21WSHTTA">
@@ -124,26 +128,47 @@
       <ownedEnd xmi:type="uml:Property" xmi:id="_z2Mo0fuQEfCHPf21WSHTTA" name="mqttbroker" type="_70yFcPuPEfCHPf21WSHTTA" association="_z2LasPuQEfCHPf21WSHTTA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Interface" xmi:id="_7fNr0PuUEfCHPf21WSHTTA" name="IDTSRelatedSystem" isAbstract="true"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_AxuHQPuVEfCHPf21WSHTTA" name="System_1">
-      <generalization xmi:type="uml:Generalization" xmi:id="_GGfMgPuVEfCHPf21WSHTTA" general="_7fNr0PuUEfCHPf21WSHTTA"/>
-      <generalization xmi:type="uml:Generalization" xmi:id="_SvlbAPuVEfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
-      <generalization xmi:type="uml:Generalization" xmi:id="_TSJVgPuVEfCHPf21WSHTTA" general="_r3DoAPuQEfCHPf21WSHTTA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_iBHzsPxLEfCHPf21WSHTTA" name="SimulationModelImplementerTool">
+      <generalization xmi:type="uml:Generalization" xmi:id="_i5o6oPxMEfCHPf21WSHTTA" general="_K02E4PxMEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_LQOAAPxREfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_DOTecPuVEfCHPf21WSHTTA" name="System_2">
-      <generalization xmi:type="uml:Generalization" xmi:id="_GiXQMPuVEfCHPf21WSHTTA" general="_7fNr0PuUEfCHPf21WSHTTA"/>
-      <generalization xmi:type="uml:Generalization" xmi:id="_TvnUoPuVEfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_tF4hoPxLEfCHPf21WSHTTA" name="IDTSRelatedTool" isAbstract="true">
+      <generalization xmi:type="uml:Generalization" xmi:id="_uXN0YPxQEfCHPf21WSHTTA" general="_7fNr0PuUEfCHPf21WSHTTA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Ems0wPuVEfCHPf21WSHTTA" name="System_3">
-      <generalization xmi:type="uml:Generalization" xmi:id="_G_obAPuVEfCHPf21WSHTTA" general="_7fNr0PuUEfCHPf21WSHTTA"/>
-      <generalization xmi:type="uml:Generalization" xmi:id="_R1DvoPuZEfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
-      <generalization xmi:type="uml:Generalization" xmi:id="_qTtP0PuZEfCHPf21WSHTTA" general="_r3DoAPuQEfCHPf21WSHTTA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_K02E4PxMEfCHPf21WSHTTA" name="IDTSRelatedComponentImplementerToMakeInteroperable" isAbstract="true">
+      <generalization xmi:type="uml:Generalization" xmi:id="_WwLOcPxMEfCHPf21WSHTTA" general="_ZGhv4PxOEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_50u9YPxMEfCHPf21WSHTTA" general="_7fNr0PuUEfCHPf21WSHTTA"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_H5QxsPuVEfCHPf21WSHTTA" name="System_2_1">
-      <generalization xmi:type="uml:Generalization" xmi:id="_NGlyMPuVEfCHPf21WSHTTA" general="_DOTecPuVEfCHPf21WSHTTA"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_Iss3MPxNEfCHPf21WSHTTA" name="OrchestratorOfDTSAndItsComponentsTool">
+      <generalization xmi:type="uml:Generalization" xmi:id="_Q9nkgPxNEfCHPf21WSHTTA" general="_tF4hoPxLEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_oQXVcPxREfCHPf21WSHTTA" general="_r3DoAPuQEfCHPf21WSHTTA"/>
+      <generalization xmi:type="uml:Generalization" xmi:id="_ux-BQPxREfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_IO7EIfxPEfCHPf21WSHTTA" name="federationspecifictool" type="_70yFcPuPEfCHPf21WSHTTA" aggregation="composite" association="_IO6dEPxPEfCHPf21WSHTTA"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_6535IvxPEfCHPf21WSHTTA" name="idtsrelatedimplementertool" type="_ZGhv4PxOEfCHPf21WSHTTA" association="_653SEPxPEfCHPf21WSHTTA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_654gMPxPEfCHPf21WSHTTA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_654gMfxPEfCHPf21WSHTTA" value="1"/>
+      </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_MEElQPuVEfCHPf21WSHTTA" name="System_2_2">
-      <generalization xmi:type="uml:Generalization" xmi:id="_NgNMEPuVEfCHPf21WSHTTA" general="_DOTecPuVEfCHPf21WSHTTA"/>
-      <generalization xmi:type="uml:Generalization" xmi:id="_V0bsEPuVEfCHPf21WSHTTA" general="_n4SsYPuQEfCHPf21WSHTTA"/>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_ZGhv4PxOEfCHPf21WSHTTA" name="IDTSRelatedImplementerTool" isAbstract="true">
+      <generalization xmi:type="uml:Generalization" xmi:id="_dVJFYPxOEfCHPf21WSHTTA" general="_tF4hoPxLEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_IO6dEPxPEfCHPf21WSHTTA" name="federationSpecificToolToBeUsed" memberEnd="_IO7EIfxPEfCHPf21WSHTTA _IO7EJPxPEfCHPf21WSHTTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_IO6dEfxPEfCHPf21WSHTTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_IO7EIPxPEfCHPf21WSHTTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_IO7EJPxPEfCHPf21WSHTTA" name="orchestratorofdtsanditscomponentstool" type="_Iss3MPxNEfCHPf21WSHTTA" association="_IO6dEPxPEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_653SEPxPEfCHPf21WSHTTA" name="dtsImplementerToolToBePiloted" memberEnd="_6535IvxPEfCHPf21WSHTTA _654gMvxPEfCHPf21WSHTTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_6535IPxPEfCHPf21WSHTTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_6535IfxPEfCHPf21WSHTTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_654gMvxPEfCHPf21WSHTTA" name="orchestratorofdtsanditscomponentstool" type="_Iss3MPxNEfCHPf21WSHTTA" association="_653SEPxPEfCHPf21WSHTTA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_bT8-0PxQEfCHPf21WSHTTA" name="dtsRelatedComponentImplementerToFederate" memberEnd="_bT9l4vxQEfCHPf21WSHTTA _bT9l5fxQEfCHPf21WSHTTA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_bT9l4PxQEfCHPf21WSHTTA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_bT9l4fxQEfCHPf21WSHTTA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_bT9l5fxQEfCHPf21WSHTTA" name="federationspecifictool" type="_70yFcPuPEfCHPf21WSHTTA" association="_bT8-0PxQEfCHPf21WSHTTA"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_VV6zIGySEfCSnqVOFxkkdw">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VV8BQGySEfCSnqVOFxkkdw" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -216,9 +241,6 @@
   <Blocks:Block xmi:id="_n4YzAPuQEfCHPf21WSHTTA" base_Class="_n4SsYPuQEfCHPf21WSHTTA" isEncapsulated="true"/>
   <Blocks:Block xmi:id="_r3IggPuQEfCHPf21WSHTTA" base_Class="_r3DoAPuQEfCHPf21WSHTTA"/>
   <Blocks:Block xmi:id="_wcsWYPuQEfCHPf21WSHTTA" base_Class="_wcosAPuQEfCHPf21WSHTTA"/>
-  <Blocks:Block xmi:id="_AxxxoPuVEfCHPf21WSHTTA" base_Class="_AxuHQPuVEfCHPf21WSHTTA"/>
-  <Blocks:Block xmi:id="_DOXI0PuVEfCHPf21WSHTTA" base_Class="_DOTecPuVEfCHPf21WSHTTA"/>
-  <Blocks:Block xmi:id="_Emv4EPuVEfCHPf21WSHTTA" base_Class="_Ems0wPuVEfCHPf21WSHTTA"/>
-  <Blocks:Block xmi:id="_H5TN8PuVEfCHPf21WSHTTA" base_Class="_H5QxsPuVEfCHPf21WSHTTA"/>
-  <Blocks:Block xmi:id="_MEHokPuVEfCHPf21WSHTTA" base_Class="_MEElQPuVEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_iBMsMPxLEfCHPf21WSHTTA" base_Class="_iBHzsPxLEfCHPf21WSHTTA"/>
+  <Blocks:Block xmi:id="_IsxvsPxNEfCHPf21WSHTTA" base_Class="_Iss3MPxNEfCHPf21WSHTTA"/>
 </xmi:XMI>

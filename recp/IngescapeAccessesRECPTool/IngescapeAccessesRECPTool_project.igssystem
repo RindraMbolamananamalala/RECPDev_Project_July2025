@@ -226,7 +226,7 @@
                     "agent": {
                         "instances": [
                             {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsMQTT.exe\" --port 5670 --name MQTT --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --broker tcp://localhost:1883 --topics search_pattern-by_name --device Wi-Fi",
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsMQTT.exe\" --port 5670 --name MQTT --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --broker tcp://localhost:1883 --topics search_pattern-by_name",
                                 "isAttachedToCircle": true,
                                 "uuid": "339051d9-f4d2-49fa-ba3d-8d36c0d745ab"
                             },
@@ -269,24 +269,6 @@
                 },
                 {
                     "data": {
-                        "data_decoder": "BINARY",
-                        "mostRecentFirst": true,
-                        "msg_type": "",
-                        "proto_file_path": "",
-                        "showTimestamps": true,
-                        "string_decoder": "PLAIN_TEXT"
-                    },
-                    "height": 75,
-                    "isExpanded": true,
-                    "name": "",
-                    "tool": "com.ingescape.circle.tool.observer",
-                    "uuid": "ce5ae1f2-59ca-4eb1-87ee-dd55ce570ca0",
-                    "width": 250,
-                    "x": 12227.569803897732,
-                    "y": -4077.9628602234798
-                },
-                {
-                    "data": {
                         "arguments": [
                         ],
                         "selectedAgentUuid": "",
@@ -319,6 +301,24 @@
                     "width": 229.9495681489243,
                     "x": 10199.309833751537,
                     "y": -3950.7173710231345
+                },
+                {
+                    "data": {
+                        "data_decoder": "BINARY",
+                        "mostRecentFirst": true,
+                        "msg_type": "",
+                        "proto_file_path": "",
+                        "showTimestamps": true,
+                        "string_decoder": "PLAIN_TEXT"
+                    },
+                    "height": 75,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.observer",
+                    "uuid": "ce5ae1f2-59ca-4eb1-87ee-dd55ce570ca0",
+                    "width": 250,
+                    "x": 12406.921680612151,
+                    "y": -4102.783878875922
                 }
             ],
             "links": {

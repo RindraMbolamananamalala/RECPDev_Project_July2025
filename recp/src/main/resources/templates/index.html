@@ -52,6 +52,7 @@
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
 	<link href="index2.css" rel="stylesheet" />
+	<script src="/javascriptFiles/mainPageContentManager.js"></script>
   </head>
   <body>
     <link rel="stylesheet" href="./style.css" />
@@ -64,8 +65,14 @@
           <div class="home-container12">
             <span class="home-text11">Find a pattern</span>
 			<p class="LabelForPatternResearchBasedElement">Type of Research</p>
-			<!--The drop-down list dedicated to the choice of Patterns' Research Type-->
-			<select name="listPatternResearchType" id="patternResearchType">
+			<!--
+				The drop-down list dedicated to the choice of Patterns' Research Type.
+				It always informs the user of the new Type of research when this latter changes
+			-->
+			<select onchange="changePatternToSearchInformationNeededPlaceholderText()" 
+					onload="changePatternToSearchInformationNeededPlaceholderText()" 
+					name="listPatternResearchType" 
+					id="patternResearchType">
 									  <option value="patternResearchByName">By Pattern's name</option>
 									  <option value="patternResearchByProblemToSolve">By Pattern's problem to solve</option>
 			</select>
@@ -74,8 +81,8 @@
 	              <input
 	                type="text"
 	                placeholder="Pattern's name"
-	                id="InputPatternName"
-	                name="inputPatternName"
+	                id="InputPatternInformation"
+	                name="InputPatternInformation"
 	                class="home-textinput"
 	              />
 	              <input

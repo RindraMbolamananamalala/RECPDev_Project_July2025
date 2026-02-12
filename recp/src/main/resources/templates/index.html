@@ -51,17 +51,24 @@
       rel="stylesheet"
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
+	<link href="index2.css" rel="stylesheet" />
   </head>
   <body>
     <link rel="stylesheet" href="./style.css" />
     <div>
-      <link href="index2.css" rel="stylesheet" />
+      
 
       <div class="home-container10">
         <span class="home-text10">RECP (Repository of Expertises, Knowledge and Practices)</span>
         <div class="home-container11">
           <div class="home-container12">
             <span class="home-text11">Find a pattern</span>
+			<p class="LabelForPatternResearchBasedElement">Type of Research</p>
+			<!--The drop-down list dedicated to the choice of Patterns' Research Type-->
+			<select name="listPatternResearchType" id="patternResearchType">
+									  <option value="patternResearchByName">By Pattern's name</option>
+									  <option value="patternResearchByProblemToSolve">By Pattern's problem to solve</option>
+			</select>
 			<form action="/search_and_display_patterns" method="POST">
 	            <div class="home-container13">
 	              <input
@@ -69,7 +76,7 @@
 	                placeholder="Pattern's name"
 	                id="InputPatternName"
 	                name="inputPatternName"
-	                class="home-textinput input"
+	                class="home-textinput"
 	              />
 	              <input
 	                type="submit"

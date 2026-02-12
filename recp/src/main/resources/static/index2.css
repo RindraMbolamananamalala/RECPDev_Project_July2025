@@ -30,7 +30,7 @@
 .home-container12 {
   flex: 0 0 auto;
   width: 50%;
-  height: 100px;
+  height: 170px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -45,6 +45,8 @@
   text-align: left;
   font-weight: 700;
   color: #010713;
+  padding-top: 27px;
+  padding-bottom: 10px;
 }
  
 .home-container13 {
@@ -70,7 +72,7 @@
  
 .home-container14 {
   width: 448px;
-  height: 100px;
+  height: 170px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -359,8 +361,9 @@
 .home-image1
 , .home-image2
 /* , img.illustration-model*/
-, .home-textinput input {
-	/* Adding the same border to any image to be displayed on the RECP's HMI */
+, .home-textinput
+, #patternResearchType {
+	/* Adding the same border to any image to be displayed on the RECP's HMI and also for the Selection of type of Pattern's research*/
 	border : 3px solid #23F7C6;
 }
 
@@ -393,6 +396,22 @@ body{
 , .home-text20
 , .home-text21
 , .illustration-model{
-	/* Configuring the color of the labels annoucning the informations on a Pattern */
+	/* Configuring the color of the labels announcing the informations on a Pattern */
 	color: #1DCCA4;
+}
+
+
+/* Setting Up the design of the Menu dedicated to the selection of the type of SEARCH to carry out on the patterns */
+#patternResearchType {
+  padding: 5px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  background-color: #DEF9FF;
+  font-size: 12px;
+}
+
+.LabelForPatternResearchBasedElement {
+	/* Configuring the appearance of the labels indicating any information on patterns needed for their research */
+	color: #1DCCA4;
+	font-size: 20px;
 }

@@ -64,34 +64,35 @@
         <div class="home-container11">
           <div class="home-container12">
             <span class="home-text11">Find a pattern</span>
-			<p class="LabelForPatternResearchBasedElement">Type of Research</p>
-			<!--
-				The drop-down list dedicated to the choice of Patterns' Research Type.
-				It always informs the user of the new Type of research when this latter changes
-			-->
-			<select onchange="changePatternToSearchInformationNeededPlaceholderText()" 
-					onload="changePatternToSearchInformationNeededPlaceholderText()" 
-					name="listPatternResearchType" 
-					id="patternResearchType">
-									  <option value="patternResearchByName">By Pattern's name</option>
-									  <option value="patternResearchByProblemToSolve">By Pattern's problem to solve</option>
-			</select>
 			<form action="/search_and_display_patterns" method="POST">
+				<p class="LabelForPatternResearchBasedElement">Type of Research</p>
+				<!--
+					The drop-down list dedicated to the choice of Patterns' Research Type.
+					It always informs the user of the new Type of research when this latter changes
+				-->
+				<select onchange="changePatternToSearchInformationNeededPlaceholderText()" 
+						onload="changePatternToSearchInformationNeededPlaceholderText()" 
+						name="typeOfPatternResearch" 
+						id="patternResearchType">
+										  <option value="patternResearchByName">By Pattern's name</option>
+										  <option value="patternResearchByProblemToSolve">By Pattern's problem to solve</option>
+				</select>
 	            <div class="home-container13">
-	              <input
-	                type="text"
-	                placeholder="Pattern's name"
-	                id="InputPatternInformation"
-	                name="InputPatternInformation"
-	                class="home-textinput"
-	              />
-	              <input
-	                type="submit"
-	                id="bSearchPattern"
-	                name="bSearchPattern"
-	                class="buttonSearchPattern"
-					value="Search"
-	              />
+					<!-- by default it's always a Pattern Research by name at the beginning -->
+					<input
+		                type="text"
+		                placeholder="Pattern's name"
+		                id="InputPatternInformation"
+		                name="inputPatternInformation"
+		                class="home-textinput"
+		              />
+		              <input
+		                type="submit"
+		                id="bSearchPattern"
+		                name="bSearchPattern"
+		                class="buttonSearchPattern"
+						value="Search"
+		              />
 	            </div>
 			</form>
           </div>

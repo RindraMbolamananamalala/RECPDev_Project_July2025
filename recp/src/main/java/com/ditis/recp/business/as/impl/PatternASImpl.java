@@ -24,14 +24,28 @@ public class PatternASImpl implements PatternASIntf {
 		return this.patternDAO;
 	}
 	
-	/**
-	 * Searching and returning in a list all the patterns having the same name as the one specified by "patternName" parameter  
-	 * @param patternName The name of the patterns that have to be found 
-	 * @return The list all the patterns having the same name as the one specified by "patternName" parameter 
-	 */
+	 /**
+	  * Searching and returning in a list all the patterns having the same information as the one specified by "patternInformation" parameter 
+	  * and in function of the Type of Research specified by "typeOfResearch"
+	  * @param typeOfResearch The Type of Research to be carried out on the patterns to be found (By Pattern's name, By Pattern's problem to solve...)  
+	  * @param patternInformation The information of the patterns that have to be found 
+	  * @return The list all the patterns having the same information as the one specified by "patternInformation" parameter 
+	  */
 	@Override
-	public List<PatternEntity> findPatterns(String patternName) {
-		return this.getPatternDAO().findByName(patternName);
+	public List<PatternEntity> findPatterns(String typeOfResearch, String patternInformation) {
+		if (typeOfResearch.equals("patternResearchByName")) {
+			// Research by Patterns'name
+			System.out.println("Searching patterns with the name : \"" + patternInformation + "\" within the Patterns DB");
+			return this.getPatternDAO().findByName(patternInformation);
+		}else if (typeOfResearch.equals("patternResearchByProblemToSolve")) {
+			// Research by Patterns'Problem to solve (Problem Statement)
+			System.out.println("Searching patterns with the Problem to solve (Problem Statement): \"" + patternInformation + "\" within the Patterns DB");
+			return this.getPatternDAO().findByProblem(patternInformation);
+		}else {
+			// Unknown type of research
+			System.out.println("Type of Pattern Research \"" + typeOfResearch + "\" unknown, Patterns search has been stopped.");
+			return null;
+		}
 	}
 
 }

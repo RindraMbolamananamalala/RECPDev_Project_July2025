@@ -6,7 +6,7 @@
 console.log("JS codes successfully integrated!!!!");
 
 
-function changePatternToSearchInformationNeededPlaceholderText() {
+function changePatternToSearchInformationNeededPlaceholderText(){
 	/** 
 	 * Everytime that the User's choice on the Type of Research to be done on Patterns changes,
 	 * The Placeholder Text of the Search Area should inform him/her of the corresponding information

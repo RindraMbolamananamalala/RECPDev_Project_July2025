@@ -13,10 +13,12 @@ import com.ditis.recp.business.model.entity.PatternEntity;
  @Service
 public interface PatternASIntf {
 	
-	/**
-	 * Searching and returning in a list all the patterns having the same name as the one specified by "patternName" parameter  
-	 * @param patternName The name of the patterns that have to be found 
-	 * @return The list all the patterns having the same name as the one specified by "patternName" parameter 
-	 */
-	public List<PatternEntity> findPatterns(String patternName);
+	 /**
+	  * Searching and returning in a list all the patterns having the same information as the one specified by "patternInformation" parameter 
+	  * and in function of the Type of Research specified by "typeOfResearch"
+	  * @param typeOfResearch The Type of Research to be carried out on the patterns to be found (By Pattern's name, By Pattern's problem to solve...)  
+	  * @param patternInformation The information of the patterns that have to be found 
+	  * @return The list all the patterns having the same information as the one specified by "patternInformation" parameter 
+	  */
+	  public List<PatternEntity> findPatterns(String typeOfResearch, String patternInformation);
 }

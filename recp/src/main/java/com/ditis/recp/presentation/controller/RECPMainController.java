@@ -79,13 +79,13 @@ public class RECPMainController{
 	 * @return The actualized (with patterns' data retrieved from the RECP's patterns DB) version of the main page (displayed)
 	 */
 	@PostMapping(value="/search_and_display_patterns")
-	public ModelAndView researchAndDisplayPattern(String inputPatternName, Model model) {
+	public ModelAndView researchAndDisplayPattern(String typeOfPatternResearch, String inputPatternInformation, Model model) {
 		// Setting up local variables
 		String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
 		try {
 			
 			// launching the SEARCH of Patterns
-			PatternEntity patternRead = this.launchPatternSearch(inputPatternName, model);
+			PatternEntity patternRead = this.launchPatternSearch(typeOfPatternResearch, inputPatternInformation, model);
 			
 		    // Putting (Copying) the Generic & Illustration Diagrams images within the local folder for pattern's diagrams images 
 		    // which is synchronized with the Image folder of the Server (TomCat)
@@ -127,9 +127,9 @@ public class RECPMainController{
 	 * @return (VERY TEMPORARY) The first Pattern Entity of the list of patterns found from the specified name
 	 */
 	@GetMapping(value="/search_patterns", params = "inputPatternName", name = "test_search_pattern")
-	public PatternEntity researchPattern(@RequestParam String inputPatternName, Model model) {
+	public PatternEntity researchPattern(@RequestParam String typeOfResearch, @RequestParam String inputPatternName, Model model) {
 		try {
-			return this.launchPatternSearch(inputPatternName, model);
+			return this.launchPatternSearch(typeOfResearch, inputPatternName, model);
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.print(e.getMessage());
@@ -149,16 +149,17 @@ public class RECPMainController{
 	}
 	
 	/**
-	 * Launching the actual process and activities of Pattern SEARCH from a pattern's name specified as argument
+	 * Launching the actual process and activities of Pattern SEARCH from a pattern's information specified as argument and in function
+	 * of the type of research chosen by the User specified under "typeOfResearch"  
 	 * @param inputPatternName The name of the patterns to SEARCH
 	 * @param model The current model (M of MVC pattern) being used by the RECP Application
 	 * @return (VERY TEMPORARY) The first Pattern Entity of the list of patterns found from the specified name
 	 */
-	private PatternEntity launchPatternSearch(String inputPatternName, Model model) {
+	private PatternEntity launchPatternSearch(String typeOfResearch, String inputPatternName, Model model) {
 		try {
 			String patternNameInput = inputPatternName;
 			// searching the patterns
-			List<PatternEntity> patternsRead = patternAS.findPatterns(patternNameInput);
+			List<PatternEntity> patternsRead = patternAS.findPatterns(typeOfResearch, patternNameInput);
 			// (SO FAR), only keeping the first one from the result obtained previously 
 			PatternEntity patternRead = patternsRead.get(0);
 			// Updating the Model part ("M" of the MVC pattern) with the data obtained from the RECP's Patterns DB

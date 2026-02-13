@@ -18,4 +18,12 @@ public interface PatternDAOIntf extends JpaRepository<PatternEntity, Long>  {
 	 * @return The list of all the patterns (entity) having the same name as that of the parameter "patternName"'s value
 	 */
 	public List<PatternEntity> findByName(String patternName);
+	
+	/**
+	 * Fetching from the Pattern DB the list of all the patterns (entity) having the same Problem Statement as that of the parameter "problemStatement"'s 
+	 * value
+	 * @param problemStatement The problem statement of the patterns to be fetched from the Pattern DB   
+	 * @return The list of all the patterns (entity) having the same Problem Statement  as that of the parameter "problemStatement"'s value
+	 */
+	public List<PatternEntity> findByProblem(String problemStatement);
 }

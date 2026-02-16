@@ -353,7 +353,9 @@
 , .exampleOfApplicationStatements1Container
 , .exampleOfApplicationStatements2Container
 , .home-image1
-, .home-image2 {
+, .home-image2
+, .ComplementaryPatternsContainer
+, .AlternativePatternsContainer {
 	/* Standardizing the margin at the end of each container related to an information on a Pattern. */
 	margin-bottom: 50px;
 }

@@ -34,6 +34,7 @@ public class PatternEntity extends RECPGenericEntity{
 	   private String examplesDiagramsImagesPaths;
 	   private String implementationsHintsStatements;
 	   private String alternativePatterns;
+	   private String complementaryPatterns;
 	   
 	   
 
@@ -184,10 +185,30 @@ public class PatternEntity extends RECPGenericEntity{
 	   
 	   /**
 	    * 
-	    * @return The list of Patterns'names (Sting) that could be an alternative of the current one inside the DB 
+	    * @return The list of Patterns'names (String) that could be an alternative of the current one inside the DB 
 	    */
 	   public List<String> getAlternativePatterns(){
-		   return Arrays.asList(this.alternativePatterns.split(";"));
+		   if(this.alternativePatterns != null)
+			   //transforming the String value into its equivalent in List
+			   return Arrays.asList(this.alternativePatterns.split(";"));
+		   // returning an empty list instead of a null when there is no alternative pattern saved for the current pattern 
+		   return new ArrayList<String>();
+	   }
+	   
+	   /**
+	    * 
+	    * @return The list of Patterns'names (String) that could be complementary to the current one inside the DB 
+	    */
+	   public List<String> getComplementaryPatterns(){
+		   if(this.complementaryPatterns != null)
+			   //transforming the String value into its equivalent in List
+			   return Arrays.asList(this.complementaryPatterns.split(";"));
+		   // returning an empty list instead of a null when there is no complementary pattern saved for the current pattern 
+		   return new ArrayList<String>();
+	   }
+	   
+	   public void setComplementaryPatterns(String complementaryPatterns) {
+		   this.complementaryPatterns = complementaryPatterns;
 	   }
 	   
 	   /**VERY TEMPORARY**/

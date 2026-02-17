@@ -181,6 +181,8 @@ public class RECPMainController{
 		    
 		    // Displaying all the alternative patterns 
 		    this.displayRelatedPatternsOnTheMainPage(patternRead.getAlternativePatterns(), "alternativePatternsLinksText", model);
+		    // Displaying all the complementary patterns 
+		    this.displayRelatedPatternsOnTheMainPage(patternRead.getComplementaryPatterns(), "complementaryPatternsLinksText", model);
 		   
 		    return patternRead;
 		}catch (Exception e) {
@@ -194,11 +196,11 @@ public class RECPMainController{
 	 * Displaying the list of related patterns (with the respective hyperlink leading to their own READ-mode HMI)  
 	 * on the main page in function of the relationship type 
 	 * @param relatedPatternsNames The list of related patterns'names
-	 * @param relationshipSpecificLinksTextElementClass The text-area HTML element's class dedicated to the type of relationship  
+	 * @param relationshipSpecificLinksTextElement The text-area HTML element (Thymeleaf Object)dedicated to the type of relationship  
 	 * @param model The current model (M of MVC pattern) being used by the RECP Application
 	 */
 	public void displayRelatedPatternsOnTheMainPage(List<String> relatedPatternsNames
-													, String relationshipSpecificLinksTextElementClass
+													, String relationshipSpecificLinksTextElement
 													, Model model) {
 		 	String patternsText = "";
 		    for(String patternName : relatedPatternsNames) {
@@ -214,6 +216,6 @@ public class RECPMainController{
 		    										+ patternName 
 		    								+ "</a>";
 		    }
-		    model.addAttribute(relationshipSpecificLinksTextElementClass, patternsText);
+		    model.addAttribute(relationshipSpecificLinksTextElement, patternsText);
 	}
 }

@@ -261,19 +261,13 @@
 			<!-- The area dedicated to the Complementary Patterns of the Current Pattern -->		
 			<div class="ComplementaryPatternsContainer">
 				<span class="home-text18">Complementary patterns:</span>
-				<span id="ComplementaryPatternsText">
-							<br><a href="http://localhost:8090/" >Pattern 1</a>
-							<br><a href="http://localhost:8090/" >Pattern 2</a>
-							<br><a href="http://localhost:8090/" >Pattern 3</a>
-				</span>
+				<span th:utext="${complementaryPatternsLinksText}"></span>
 			</div>
 			
 			<!-- The area dedicated to the Alternative Patterns of the Current Pattern -->		
 			<div class="AlternativePatternsContainer">
 				<span class="home-text18">Alternative patterns:</span>
-				<span id="AlternativePatternsText" class="home-text19">
-						<span th:utext="${alternativePatternsLinksText}"></span>
-				</span>
+				<span th:utext="${alternativePatternsLinksText}"></span>
 			</div>
 						
         </div>

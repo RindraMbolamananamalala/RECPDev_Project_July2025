@@ -33,6 +33,7 @@ public class PatternEntity extends RECPGenericEntity{
 	   private String examplesOfApplicationsStatements;
 	   private String examplesDiagramsImagesPaths;
 	   private String implementationsHintsStatements;
+	   private String alternativePatterns;
 	   
 	   
 
@@ -175,6 +176,18 @@ public class PatternEntity extends RECPGenericEntity{
 	   public List<String> getExamplesDiagramsImagesPaths() {
 		   //transforming the String value into its equivalent in List
 		   return Arrays.asList(this.examplesDiagramsImagesPaths.split(";"));
+	   }
+	   
+	   public void setAlternativePatterns(String alternativePatterns) {
+		   this.alternativePatterns = alternativePatterns;
+	   }
+	   
+	   /**
+	    * 
+	    * @return The list of Patterns'names (Sting) that could be an alternative of the current one inside the DB 
+	    */
+	   public List<String> getAlternativePatterns(){
+		   return Arrays.asList(this.alternativePatterns.split(";"));
 	   }
 	   
 	   /**VERY TEMPORARY**/

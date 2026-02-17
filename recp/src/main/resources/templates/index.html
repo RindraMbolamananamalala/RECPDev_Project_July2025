@@ -64,7 +64,7 @@
         <div class="home-container11">
           <div class="home-container12">
             <span class="home-text11">Find a pattern</span>
-			<form action="/search_and_display_patterns" method="POST">
+			<form action="/search_and_display_patterns" method="GET">
 				<p class="LabelForPatternResearchBasedElement">Type of Research</p>
 				<!--
 					The drop-down list dedicated to the choice of Patterns' Research Type.
@@ -272,9 +272,7 @@
 			<div class="AlternativePatternsContainer">
 				<span class="home-text18">Alternative patterns:</span>
 				<span id="AlternativePatternsText" class="home-text19">
-					<br><a href="http://localhost:8090/" >Pattern 1</a>
-					<br><a href="http://localhost:8090/" >Pattern 2</a>
-					<br><a href="http://localhost:8090/" >Pattern 3</a>
+						<span th:utext="${alternativePatternsLinksText}"></span>
 				</span>
 			</div>
 						

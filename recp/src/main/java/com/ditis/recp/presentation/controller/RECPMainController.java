@@ -78,7 +78,7 @@ public class RECPMainController{
 	 * @param model The current model being used by the RECP Application
 	 * @return The actualized (with patterns' data retrieved from the RECP's patterns DB) version of the main page (displayed)
 	 */
-	@PostMapping(value="/search_and_display_patterns")
+	@GetMapping(value="/search_and_display_patterns")
 	public ModelAndView researchAndDisplayPattern(String typeOfPatternResearch, String inputPatternInformation, Model model) {
 		// Setting up local variables
 		String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
@@ -126,10 +126,10 @@ public class RECPMainController{
 	 * @param model The current model being used by the RECP Application
 	 * @return (VERY TEMPORARY) The first Pattern Entity of the list of patterns found from the specified name
 	 */
-	@GetMapping(value="/search_patterns", params = "inputPatternName", name = "test_search_pattern")
-	public PatternEntity researchPattern(@RequestParam String typeOfResearch, @RequestParam String inputPatternName, Model model) {
+	@GetMapping(value="/search_patterns")
+	public PatternEntity researchPattern(@RequestParam String typeOfPatternResearch, @RequestParam String inputPatternInformation, Model model) {
 		try {
-			return this.launchPatternSearch(typeOfResearch, inputPatternName, model);
+			return this.launchPatternSearch(typeOfPatternResearch, inputPatternInformation, model);
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.err.print(e.getMessage());
@@ -178,11 +178,42 @@ public class RECPMainController{
 		    /** VERY TEMPORARY, only 2 examples of applications statements are handled by the available version of the RECP **/
 		    model.addAttribute("patternExampleOfApplicationStatements1", patternRead.getExamplesOfApplicationsStatements().get(0));
 		    model.addAttribute("patternExampleOfApplicationStatements2", patternRead.getExamplesOfApplicationsStatements().get(1));
+		    
+		    // Displaying all the alternative patterns 
+		    this.displayRelatedPatternsOnTheMainPage(patternRead.getAlternativePatterns(), "alternativePatternsLinksText", model);
+		   
 		    return patternRead;
 		}catch (Exception e) {
 			// TODO: handle exception
 			System.err.println(e.getMessage());
 			return null;
 		}
+	}
+	
+	/**
+	 * Displaying the list of related patterns (with the respective hyperlink leading to their own READ-mode HMI)  
+	 * on the main page in function of the relationship type 
+	 * @param relatedPatternsNames The list of related patterns'names
+	 * @param relationshipSpecificLinksTextElementClass The text-area HTML element's class dedicated to the type of relationship  
+	 * @param model The current model (M of MVC pattern) being used by the RECP Application
+	 */
+	public void displayRelatedPatternsOnTheMainPage(List<String> relatedPatternsNames
+													, String relationshipSpecificLinksTextElementClass
+													, Model model) {
+		 	String patternsText = "";
+		    for(String patternName : relatedPatternsNames) {
+		    	patternsText += "</BR>" 
+		    								+ "<a href=\""
+		    										+ "http://" + this.serverAddress + ":" + this.serverPort 
+		    										+ "/search_and_display_patterns" 
+		    										+ "?" 
+		    										+ "typeOfPatternResearch=patternResearchByName" 
+		    										+ "&" 
+		    										+ "inputPatternInformation=" + patternName 
+		    									+ "\">" 
+		    										+ patternName 
+		    								+ "</a>";
+		    }
+		    model.addAttribute(relationshipSpecificLinksTextElementClass, patternsText);
 	}
 }

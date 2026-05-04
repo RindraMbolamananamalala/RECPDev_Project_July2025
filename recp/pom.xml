@@ -81,6 +81,56 @@
 			    <version>2.20.0</version>
 			</dependency>
 			
+			<!-- Ingescape-related Configurations -->
+			
+			<dependency>
+			    <groupId>com.ingescape</groupId>
+			    <artifactId>ingescape</artifactId>
+			    <version>1.0</version>
+			    <scope>system</scope>
+			    <systemPath>${project.basedir}/JARLibraries/ingescape.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+			    <groupId>okhttp3</groupId>
+			    <artifactId>okhttp-4.9.0</artifactId>
+			    <version>1.0</version>
+			    <scope>system</scope>
+			    <systemPath>${project.basedir}/JARLibraries/okhttp-4.9.0.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+			    <groupId>com.google.gson</groupId>
+			    <artifactId>com.google.gson</artifactId>
+			    <version>1.0</version>
+			    <scope>system</scope>
+			    <systemPath>${project.basedir}/JARLibraries/gson-2.8.6.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+			    <groupId>kotlin</groupId>
+			    <artifactId>kotlin-stdlib</artifactId>
+			    <version>1.0</version>
+			    <scope>system</scope>
+			    <systemPath>${project.basedir}/JARLibraries/kotlin-stdlib-1.4.0.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+			    <groupId>okio</groupId>
+			    <artifactId>kotlin-stdlib</artifactId>
+			    <version>1.0</version>
+			    <scope>system</scope>
+			    <systemPath>${project.basedir}/JARLibraries/okio-2.8.0.jar</systemPath>
+			</dependency>
+			
+			<dependency>
+			    <groupId>okio</groupId>
+			    <artifactId>kotlin-stdlib</artifactId>
+			    <version>1.0</version>
+			    <scope>system</scope>
+			    <systemPath>${project.basedir}/JARLibraries/okio-2.8.0.jar</systemPath>
+			</dependency>
+			
 	</dependencies>
 
 	<build>

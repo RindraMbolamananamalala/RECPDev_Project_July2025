@@ -209,6 +209,34 @@
                 "plugin": "ingescape_class",
                 "uuid": "7ccaae3a-a69f-4e41-904b-a536d1371328",
                 "version": ""
+            },
+            {
+                "className": "RECPTool",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "patternSearchByName",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "patternSearchByProblem",
+                            "type": "STRING"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "patternFound",
+                            "type": "STRING"
+                        }
+                    ]
+                },
+                "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The Agent encapsulating the RECP Tool</p></body></html>",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "25d54fc0-1676-49e8-8f9a-5d1ab6c7c087",
+                "version": ""
             }
         ],
         "detailedTypes": [
@@ -226,81 +254,36 @@
                     "agent": {
                         "instances": [
                             {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsMQTT.exe\" --port 5670 --name MQTT --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --broker tcp://localhost:1883 --topics search_pattern-by_name",
-                                "isAttachedToCircle": true,
-                                "uuid": "339051d9-f4d2-49fa-ba3d-8d36c0d745ab"
-                            },
-                            {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsMQTT.exe\" --port 5670 --name MQTT --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --broker tcp://localhost:1883",
-                                "isAttachedToCircle": true,
-                                "uuid": "9c53b13b-ef4a-43a7-b9f4-a576856a10f6"
-                            }
-                        ]
-                    },
-                    "class": "D42A966E11324A978755ED8E9BD26B9F",
-                    "data": {
-                        "topics": [
-                            "search_pattern-by_name"
-                        ]
-                    },
-                    "height": 166.9754050895774,
-                    "name": "MQTT",
-                    "simulationTime": 5000,
-                    "uuid": "158d3c59-cdb5-4278-8dcd-e3840e499f80",
-                    "width": 323.4049089471531,
-                    "x": 11931.565972635317,
-                    "y": -3662.1215629077356
-                },
-                {
-                    "data": {
-                        "entries": [
-                            "Test_string7"
-                        ],
-                        "value_type": "STRING"
-                    },
-                    "height": 88,
-                    "isExpanded": true,
-                    "name": "",
-                    "tool": "com.ingescape.circle.tool.writer",
-                    "uuid": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
-                    "width": 250,
-                    "x": 11113.76563666293,
-                    "y": -4135.168555769742
-                },
-                {
-                    "data": {
-                        "arguments": [
-                        ],
-                        "selectedAgentUuid": "",
-                        "selectedService": ""
-                    },
-                    "height": 64,
-                    "isExpanded": true,
-                    "name": "",
-                    "tool": "com.ingescape.circle.tool.servicecaller",
-                    "uuid": "6be9363f-ef13-437d-9abb-6fd6e109c9db",
-                    "width": 350,
-                    "x": 9398.962812973892,
-                    "y": -3486.9930903852783
-                },
-                {
-                    "agent": {
-                        "instances": [
-                            {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\"",
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:8000 --device Wi-Fi",
                                 "isAttachedToCircle": true,
                                 "uuid": "93e84e04-8e96-4744-a5b4-622bc48c7a05"
                             }
                         ]
                     },
                     "class": "48879EBE0FBC48D8B429F11510954D9B",
-                    "height": 237.63934145762153,
+                    "height": 151.21234580481547,
                     "name": "Proxy",
                     "simulationTime": 5000,
                     "uuid": "bbe15ca3-55a2-4cb9-9a9a-17893d37b2e6",
                     "width": 229.9495681489243,
-                    "x": 10199.309833751537,
-                    "y": -3950.7173710231345
+                    "x": 11018.671660801256,
+                    "y": -4509.103559260743
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "EARS' Requirements pattern for DTS"
+                        ],
+                        "value_type": "STRING"
+                    },
+                    "height": 154.938557516373,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
+                    "width": 466.9148199072882,
+                    "x": 9777.367008304258,
+                    "y": -3774.0392789459647
                 },
                 {
                     "data": {
@@ -309,24 +292,36 @@
                         "msg_type": "",
                         "proto_file_path": "",
                         "showTimestamps": true,
-                        "string_decoder": "PLAIN_TEXT"
+                        "string_decoder": "JSON"
                     },
-                    "height": 75,
+                    "height": 866.9085253827366,
                     "isExpanded": true,
                     "name": "",
                     "tool": "com.ingescape.circle.tool.observer",
-                    "uuid": "ce5ae1f2-59ca-4eb1-87ee-dd55ce570ca0",
-                    "width": 250,
-                    "x": 12406.921680612151,
-                    "y": -4102.783878875922
+                    "uuid": "70e28700-8c74-467a-bd92-b72eb53f1181",
+                    "width": 1024.4536943391092,
+                    "x": 11050.803034894154,
+                    "y": -4073.093605762481
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "25d54fc0-1676-49e8-8f9a-5d1ab6c7c087",
+                    "height": 238.0833182450917,
+                    "name": "RECPTool",
+                    "simulationTime": 5000,
+                    "uuid": "96638f8e-f5d7-4335-8553-52651f502dcc",
+                    "width": 372.8619078823273,
+                    "x": 10434.246083317332,
+                    "y": -3608.607872851512
                 }
             ],
             "links": {
                 "others": [
                     {
-                        "destination": "158d3c59-cdb5-4278-8dcd-e3840e499f80",
+                        "destination": "96638f8e-f5d7-4335-8553-52651f502dcc",
                         "destinationIO": {
-                            "name": "search_pattern-by_name",
+                            "name": "patternSearchByName",
                             "type": "INPUT"
                         },
                         "source": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
@@ -336,14 +331,14 @@
                         }
                     },
                     {
-                        "destination": "ce5ae1f2-59ca-4eb1-87ee-dd55ce570ca0",
+                        "destination": "70e28700-8c74-467a-bd92-b72eb53f1181",
                         "destinationIO": {
                             "name": "wildcard",
                             "type": "INPUT"
                         },
-                        "source": "158d3c59-cdb5-4278-8dcd-e3840e499f80",
+                        "source": "96638f8e-f5d7-4335-8553-52651f502dcc",
                         "sourceIO": {
-                            "name": "search_pattern-by_name",
+                            "name": "patternFound",
                             "type": "OUTPUT"
                         }
                     }

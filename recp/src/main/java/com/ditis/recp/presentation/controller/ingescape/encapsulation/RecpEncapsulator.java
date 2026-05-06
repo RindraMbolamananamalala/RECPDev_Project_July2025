@@ -8,8 +8,7 @@ import com.ingescape.IoaType;
 
 public class RecpEncapsulator {
 	
-	public static void main(String []args) {
-		
+	public void launchRECPAsAnIngescapeAgent() {
 		// Initializing the Main RECP Agent 
 		RecpEncapsulationMainAgent recpEncapsulationMainAgent = new RecpEncapsulationMainAgent();
 		
@@ -35,6 +34,8 @@ public class RecpEncapsulator {
 		
 		// launching the encapsulation agent
 		recpEncapsulationAgent.start();
+		
+		System.out.println("RECP Agent launched successfully under Ingescape!");
 	}
 
 }

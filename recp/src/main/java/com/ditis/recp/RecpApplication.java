@@ -7,6 +7,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import com.ditis.recp.presentation.controller.ingescape.encapsulation.RecpEncapsulator;
+
 @SpringBootApplication
 @ServletComponentScan
 public class RecpApplication extends SpringBootServletInitializer{
@@ -23,6 +25,10 @@ public class RecpApplication extends SpringBootServletInitializer{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(RecpApplication.class, args);
+		
+		// once the RECP Tool Web Application is launched, we have to launch the Ingescape Agent encapsulating it
+		RecpEncapsulator recpEncapsulator = new RecpEncapsulator();
+		recpEncapsulator.launchRECPAsAnIngescapeAgent();
 	}
 
 }

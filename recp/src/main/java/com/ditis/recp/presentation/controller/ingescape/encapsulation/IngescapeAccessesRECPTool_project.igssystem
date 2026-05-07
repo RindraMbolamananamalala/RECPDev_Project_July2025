@@ -254,9 +254,14 @@
                     "agent": {
                         "instances": [
                             {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:8000 --device Wi-Fi",
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:3000 --device Ethernet",
                                 "isAttachedToCircle": true,
                                 "uuid": "93e84e04-8e96-4744-a5b4-622bc48c7a05"
+                            },
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:8000 --device Ethernet",
+                                "isAttachedToCircle": true,
+                                "uuid": "653fdbd1-e846-47a4-805c-1b29b3d6e9c6"
                             }
                         ]
                     },
@@ -266,8 +271,8 @@
                     "simulationTime": 5000,
                     "uuid": "bbe15ca3-55a2-4cb9-9a9a-17893d37b2e6",
                     "width": 229.9495681489243,
-                    "x": 11018.671660801256,
-                    "y": -4509.103559260743
+                    "x": 12057.52918970316,
+                    "y": -5309.112614454663
                 },
                 {
                     "data": {
@@ -282,8 +287,20 @@
                     "tool": "com.ingescape.circle.tool.writer",
                     "uuid": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
                     "width": 466.9148199072882,
-                    "x": 9777.367008304258,
-                    "y": -3774.0392789459647
+                    "x": 10602.423785600444,
+                    "y": -4884.703032889798
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "25d54fc0-1676-49e8-8f9a-5d1ab6c7c087",
+                    "height": 122,
+                    "name": "RECPTool",
+                    "simulationTime": 5000,
+                    "uuid": "71cc1eef-a6e5-46e3-a218-4468b1d6ecef",
+                    "width": 250,
+                    "x": 11588.922314901069,
+                    "y": -4551.394922814579
                 },
                 {
                     "data": {
@@ -294,32 +311,20 @@
                         "showTimestamps": true,
                         "string_decoder": "JSON"
                     },
-                    "height": 866.9085253827366,
+                    "height": 766.0886138769764,
                     "isExpanded": true,
                     "name": "",
                     "tool": "com.ingescape.circle.tool.observer",
                     "uuid": "70e28700-8c74-467a-bd92-b72eb53f1181",
-                    "width": 1024.4536943391092,
-                    "x": 11050.803034894154,
-                    "y": -4073.093605762481
-                },
-                {
-                    "agent": {
-                    },
-                    "class": "25d54fc0-1676-49e8-8f9a-5d1ab6c7c087",
-                    "height": 238.0833182450917,
-                    "name": "RECPTool",
-                    "simulationTime": 5000,
-                    "uuid": "96638f8e-f5d7-4335-8553-52651f502dcc",
-                    "width": 372.8619078823273,
-                    "x": 10434.246083317332,
-                    "y": -3608.607872851512
+                    "width": 1430.8355033191656,
+                    "x": 12303.178741144395,
+                    "y": -5015.738272340955
                 }
             ],
             "links": {
                 "others": [
                     {
-                        "destination": "96638f8e-f5d7-4335-8553-52651f502dcc",
+                        "destination": "71cc1eef-a6e5-46e3-a218-4468b1d6ecef",
                         "destinationIO": {
                             "name": "patternSearchByName",
                             "type": "INPUT"
@@ -336,7 +341,7 @@
                             "name": "wildcard",
                             "type": "INPUT"
                         },
-                        "source": "96638f8e-f5d7-4335-8553-52651f502dcc",
+                        "source": "71cc1eef-a6e5-46e3-a218-4468b1d6ecef",
                         "sourceIO": {
                             "name": "patternFound",
                             "type": "OUTPUT"

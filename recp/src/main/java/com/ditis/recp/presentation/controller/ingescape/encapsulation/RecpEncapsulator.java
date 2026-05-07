@@ -13,7 +13,7 @@ public class RecpEncapsulator {
 		RecpEncapsulationMainAgent recpEncapsulationMainAgent = new RecpEncapsulationMainAgent();
 		
 		// Preparing the Web Socket-based communication with Ingescape 
-		Global globalContext = new Global("ws://localhost:8000");
+		Global globalContext = new Global("ws://localhost:3000");
 		globalContext.observeWebSocketEvents(recpEncapsulationMainAgent);
 		
 		// Preparing the Agent dedicated to the encapsulation

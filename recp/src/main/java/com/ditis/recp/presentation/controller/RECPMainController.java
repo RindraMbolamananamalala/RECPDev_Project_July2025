@@ -178,12 +178,14 @@ public class RECPMainController{
 		    /** VERY TEMPORARY, only 2 examples of applications statements are handled by the available version of the RECP **/
 		    model.addAttribute("patternExampleOfApplicationStatements1", patternRead.getExamplesOfApplicationsStatements().get(0));
 		    model.addAttribute("patternExampleOfApplicationStatements2", patternRead.getExamplesOfApplicationsStatements().get(1));
-		    
 		    // Displaying all the alternative patterns 
 		    this.displayRelatedPatternsOnTheMainPage(patternRead.getAlternativePatterns(), "alternativePatternsLinksText", model);
 		    // Displaying all the complementary patterns 
 		    this.displayRelatedPatternsOnTheMainPage(patternRead.getComplementaryPatterns(), "complementaryPatternsLinksText", model);
-		   
+		    // Displaying all the anti-patterns 
+		    this.displayRelatedPatternsOnTheMainPage(patternRead.getAntiPatterns(), "antiPatternsLinksText", model);
+		    
+		    
 		    return patternRead;
 		}catch (Exception e) {
 			// TODO: handle exception

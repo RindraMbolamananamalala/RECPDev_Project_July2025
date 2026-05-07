@@ -35,6 +35,7 @@ public class PatternEntity extends RECPGenericEntity{
 	   private String implementationsHintsStatements;
 	   private String alternativePatterns;
 	   private String complementaryPatterns;
+	   private String antiPatterns;
 	   
 	   
 
@@ -209,6 +210,22 @@ public class PatternEntity extends RECPGenericEntity{
 	   
 	   public void setComplementaryPatterns(String complementaryPatterns) {
 		   this.complementaryPatterns = complementaryPatterns;
+	   }
+	   
+	   /**
+	    * 
+	    * @return The list of Patterns'names (String) that could be an anti-pattern of the current one inside the DB 
+	    */
+	   public List<String> getAntiPatterns(){
+		   if(this.antiPatterns != null)
+			   //transforming the String value into its equivalent in List
+			   return Arrays.asList(this.antiPatterns.split(";"));
+		   // returning an empty list instead of a null when there is no anti pattern saved for the current pattern 
+		   return new ArrayList<String>();
+	   }
+	   
+	   public void setAntiPatterns(String antiPatterns) {
+		   this.antiPatterns = antiPatterns;
 	   }
 	   
 	   /**VERY TEMPORARY**/

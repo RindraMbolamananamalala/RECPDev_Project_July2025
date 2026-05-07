@@ -355,7 +355,8 @@
 , .home-image1
 , .home-image2
 , .ComplementaryPatternsContainer
-, .AlternativePatternsContainer {
+, .AlternativePatternsContainer
+, .AntiPatternsContainer{
 	/* Standardizing the margin at the end of each container related to an information on a Pattern. */
 	margin-bottom: 50px;
 }

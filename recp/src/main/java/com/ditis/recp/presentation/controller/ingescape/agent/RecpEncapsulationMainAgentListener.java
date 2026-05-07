@@ -9,7 +9,7 @@ import com.ingescape.WebSocketEvent;
 import com.ingescape.WebSocketEventListener;
 
 @Service
-public class RecpEncapsulationMainAgent implements AgentEventListener, WebSocketEventListener {
+public class RecpEncapsulationMainAgentListener implements AgentEventListener, WebSocketEventListener {
 	
 	@Override
 	public void handleAgentEvent(Agent agent, AgentEvent event, String uuid, String name, Object eventData) {

@@ -237,6 +237,34 @@
                 "plugin": "ingescape_class",
                 "uuid": "25d54fc0-1676-49e8-8f9a-5d1ab6c7c087",
                 "version": ""
+            },
+            {
+                "className": "RECP Tool Agent",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "patternSearchByName",
+                            "type": "STRING"
+                        },
+                        {
+                            "name": "patternSearchByProblem",
+                            "type": "STRING"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "patternFound",
+                            "type": "STRING"
+                        }
+                    ]
+                },
+                "description": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\np, li { white-space: pre-wrap; }\nhr { height: 1px; border-width: 0; }\nli.unchecked::marker { content: \"\\2610\"; }\nli.checked::marker { content: \"\\2612\"; }\n</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">The Agent encapsulating the RECP Tool</p></body></html>",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "ebe52e4a-b7f9-4325-a959-cd69f6625036",
+                "version": ""
             }
         ],
         "detailedTypes": [
@@ -276,34 +304,6 @@
                 },
                 {
                     "data": {
-                        "entries": [
-                            "EARS' Requirements pattern for DTS"
-                        ],
-                        "value_type": "STRING"
-                    },
-                    "height": 154.938557516373,
-                    "isExpanded": true,
-                    "name": "",
-                    "tool": "com.ingescape.circle.tool.writer",
-                    "uuid": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
-                    "width": 466.9148199072882,
-                    "x": 10602.423785600444,
-                    "y": -4884.703032889798
-                },
-                {
-                    "agent": {
-                    },
-                    "class": "25d54fc0-1676-49e8-8f9a-5d1ab6c7c087",
-                    "height": 122,
-                    "name": "RECPTool",
-                    "simulationTime": 5000,
-                    "uuid": "71cc1eef-a6e5-46e3-a218-4468b1d6ecef",
-                    "width": 250,
-                    "x": 11588.922314901069,
-                    "y": -4551.394922814579
-                },
-                {
-                    "data": {
                         "data_decoder": "BINARY",
                         "mostRecentFirst": true,
                         "msg_type": "",
@@ -319,12 +319,40 @@
                     "width": 1430.8355033191656,
                     "x": 12303.178741144395,
                     "y": -5015.738272340955
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "ebe52e4a-b7f9-4325-a959-cd69f6625036",
+                    "height": 122,
+                    "name": "RECP Tool Agent",
+                    "simulationTime": 5000,
+                    "uuid": "3ffa36cf-a174-464b-bf30-13fb30b94bee",
+                    "width": 250,
+                    "x": 11493.373623716441,
+                    "y": -4343.45197773746
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "EARS' Requirements pattern for DTS"
+                        ],
+                        "value_type": "STRING"
+                    },
+                    "height": 154.938557516373,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
+                    "width": 466.9148199072882,
+                    "x": 10602.423785600444,
+                    "y": -4884.703032889798
                 }
             ],
             "links": {
                 "others": [
                     {
-                        "destination": "71cc1eef-a6e5-46e3-a218-4468b1d6ecef",
+                        "destination": "3ffa36cf-a174-464b-bf30-13fb30b94bee",
                         "destinationIO": {
                             "name": "patternSearchByName",
                             "type": "INPUT"
@@ -341,7 +369,7 @@
                             "name": "wildcard",
                             "type": "INPUT"
                         },
-                        "source": "71cc1eef-a6e5-46e3-a218-4468b1d6ecef",
+                        "source": "3ffa36cf-a174-464b-bf30-13fb30b94bee",
                         "sourceIO": {
                             "name": "patternFound",
                             "type": "OUTPUT"

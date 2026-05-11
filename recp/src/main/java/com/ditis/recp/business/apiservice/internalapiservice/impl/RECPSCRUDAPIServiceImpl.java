@@ -1,6 +1,10 @@
-package com.ditis.recp.business.apiservice;
+package com.ditis.recp.business.apiservice.internalapiservice.impl;
 
 import java.io.IOException;
+
+import org.springframework.stereotype.Service;
+
+import com.ditis.recp.business.apiservice.internalapiservice.intf.RECPSCRUDAPIServiceIntf;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -8,8 +12,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class TestEncapsulationAPI {
+public class RECPSCRUDAPIServiceImpl implements RECPSCRUDAPIServiceIntf{
 	
+	@Override
 	public String searchPatternByName(String patternName) {
 		OkHttpClient client = new OkHttpClient().newBuilder()
 				  .build();

@@ -1,8 +1,10 @@
 package com.ditis.recp.presentation.controller.ingescape.agent;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ditis.recp.business.apiservice.TestEncapsulationAPI;
+import com.ditis.recp.business.apiservice.internalapiservice.impl.RECPSCRUDAPIServiceImpl;
+import com.ditis.recp.business.apiservice.internalapiservice.intf.RECPSCRUDAPIServiceIntf;
 import com.ingescape.Agent;
 import com.ingescape.Ioa;
 import com.ingescape.IoaListener;
@@ -12,13 +14,13 @@ import com.ingescape.ServiceListener;
 @Service
 public class RECPSearchAgent implements IoaListener{
 	
-	private TestEncapsulationAPI recpAPIService;
+	private RECPSCRUDAPIServiceIntf recpAPIService;
 	
-	public void setRECPAPIService(TestEncapsulationAPI recpAPIService) {
+	public void setRECPAPIService(RECPSCRUDAPIServiceIntf recpAPIService) {
         this.recpAPIService = recpAPIService;
     }
 	
-	public TestEncapsulationAPI getRECPAPIService() {
+	public RECPSCRUDAPIServiceIntf getRECPAPIService() {
 		return this.recpAPIService;
 	}
 	
@@ -32,6 +34,7 @@ public class RECPSearchAgent implements IoaListener{
 	}
 	
 	public RECPSearchAgent() {
-		recpAPIService = new TestEncapsulationAPI();
+		// Initializing the RECPSCRUDAPIService object
+		this.setRECPAPIService(new RECPSCRUDAPIServiceImpl());
 	}
 }

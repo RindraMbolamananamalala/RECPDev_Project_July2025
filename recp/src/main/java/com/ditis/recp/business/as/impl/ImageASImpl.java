@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ditis.recp.business.as.intf.ImageASIntf;
 
 /**
- * The Abstract Class regrouping any Image-related Application Service 
+ * The Implementation Class regrouping any Image-related Application Service 
  * @author Rindra Mbolamananamalala
  */
  @Service

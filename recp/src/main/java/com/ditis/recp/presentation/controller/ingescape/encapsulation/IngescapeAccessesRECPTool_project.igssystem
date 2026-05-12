@@ -265,6 +265,30 @@
                 "plugin": "ingescape_class",
                 "uuid": "ebe52e4a-b7f9-4325-a959-cd69f6625036",
                 "version": ""
+            },
+            {
+                "className": "AtlassianJira_RequirementsEngineeringAgent",
+                "color": 0,
+                "definition": {
+                    "inputs": [
+                        {
+                            "name": "commandOfRequirements",
+                            "type": "STRING"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "requirementsAsked",
+                            "type": "STRING"
+                        }
+                    ]
+                },
+                "description": "",
+                "icon": -1,
+                "package": "",
+                "plugin": "ingescape_class",
+                "uuid": "92f79476-8a2e-4d2c-bdd4-a4b3c9357bc3",
+                "version": ""
             }
         ],
         "detailedTypes": [
@@ -279,15 +303,37 @@
         {
             "children": [
                 {
+                    "class": "92f79476-8a2e-4d2c-bdd4-a4b3c9357bc3",
+                    "height": 100,
+                    "name": "",
+                    "simulationTime": 5000,
+                    "uuid": "e01293b9-bc79-4242-8d54-f12e03a18b91",
+                    "width": 250,
+                    "x": 11320.291275820975,
+                    "y": -5460.138680816632
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "ebe52e4a-b7f9-4325-a959-cd69f6625036",
+                    "height": 122,
+                    "name": "RECP Tool Agent",
+                    "simulationTime": 5000,
+                    "uuid": "3ffa36cf-a174-464b-bf30-13fb30b94bee",
+                    "width": 250,
+                    "x": 11969.247874245035,
+                    "y": -3678.187841411021
+                },
+                {
                     "agent": {
                         "instances": [
                             {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:3000 --device Ethernet",
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:3000 --device Wi-Fi",
                                 "isAttachedToCircle": true,
                                 "uuid": "93e84e04-8e96-4744-a5b4-622bc48c7a05"
                             },
                             {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:8000 --device Ethernet",
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:8000 --device Wi-Fi",
                                 "isAttachedToCircle": true,
                                 "uuid": "653fdbd1-e846-47a4-805c-1b29b3d6e9c6"
                             }
@@ -299,8 +345,29 @@
                     "simulationTime": 5000,
                     "uuid": "bbe15ca3-55a2-4cb9-9a9a-17893d37b2e6",
                     "width": 229.9495681489243,
-                    "x": 12057.52918970316,
-                    "y": -5309.112614454663
+                    "x": 11132.691577287782,
+                    "y": -4002.6714497658404
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "C:\\pythonProjectTestStats\\.venv\\REToolAncapsulationProject\\Scripts\\python.exe C:\\ProjetsPythonLocaux\\REToolISEncapsulationProject\\wREToolISEncapsulation\\REToolEncapsulationProject\\main.py AtlassianJira_RequirementsEngineeringAgent Wi-Fi 5670",
+                                "hostname": "MBOLAMANA-MOB2",
+                                "ip": "10.24.157.69",
+                                "isAttachedToCircle": false,
+                                "uuid": "169f7dd0-582d-47b0-aced-68285fcd3154"
+                            }
+                        ]
+                    },
+                    "class": "92f79476-8a2e-4d2c-bdd4-a4b3c9357bc3",
+                    "height": 100,
+                    "name": "AtlassianJira_RequirementsEngineeringAgent",
+                    "simulationTime": 5000,
+                    "uuid": "4b171b59-715e-4e3f-8d14-c16683e3bbc6",
+                    "width": 250,
+                    "x": 11746.949736129263,
+                    "y": -4653.68034721372
                 },
                 {
                     "data": {
@@ -311,26 +378,14 @@
                         "showTimestamps": true,
                         "string_decoder": "JSON"
                     },
-                    "height": 766.0886138769764,
+                    "height": 2234.0037902598233,
                     "isExpanded": true,
                     "name": "",
                     "tool": "com.ingescape.circle.tool.observer",
                     "uuid": "70e28700-8c74-467a-bd92-b72eb53f1181",
-                    "width": 1430.8355033191656,
-                    "x": 12303.178741144395,
-                    "y": -5015.738272340955
-                },
-                {
-                    "agent": {
-                    },
-                    "class": "ebe52e4a-b7f9-4325-a959-cd69f6625036",
-                    "height": 122,
-                    "name": "RECP Tool Agent",
-                    "simulationTime": 5000,
-                    "uuid": "3ffa36cf-a174-464b-bf30-13fb30b94bee",
-                    "width": 250,
-                    "x": 11493.373623716441,
-                    "y": -4343.45197773746
+                    "width": 1683.7879262673307,
+                    "x": 12238.161759919689,
+                    "y": -6309.683031968508
                 },
                 {
                     "data": {
@@ -345,8 +400,8 @@
                     "tool": "com.ingescape.circle.tool.writer",
                     "uuid": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
                     "width": 466.9148199072882,
-                    "x": 10602.423785600444,
-                    "y": -4884.703032889798
+                    "x": 10742.21238012028,
+                    "y": -4604.125569000284
                 }
             ],
             "links": {
@@ -364,14 +419,26 @@
                         }
                     },
                     {
+                        "destination": "4b171b59-715e-4e3f-8d14-c16683e3bbc6",
+                        "destinationIO": {
+                            "name": "commandOfRequirements",
+                            "type": "INPUT"
+                        },
+                        "source": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
+                        "sourceIO": {
+                            "name": "value",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
                         "destination": "70e28700-8c74-467a-bd92-b72eb53f1181",
                         "destinationIO": {
                             "name": "wildcard",
                             "type": "INPUT"
                         },
-                        "source": "3ffa36cf-a174-464b-bf30-13fb30b94bee",
+                        "source": "4b171b59-715e-4e3f-8d14-c16683e3bbc6",
                         "sourceIO": {
-                            "name": "patternFound",
+                            "name": "requirementsAsked",
                             "type": "OUTPUT"
                         }
                     }

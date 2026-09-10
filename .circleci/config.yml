@@ -28,6 +28,12 @@ jobs:
             # Build and Push of the RECP Tool image
             docker build -t recptool.azurecr.io/recp-app:latest .
             docker push recptool.azurecr.io/recp-app:latest
+            
+       # Catalyzing the pull action to be made by Microsoft Azure through a WebHook 
+      - run:
+           name: Trigger Azure Webhook (Force Pull)
+           command: |
+              curl -X POST "$AZURE_WEBHOOK_URL"
 
 workflows:
   test-and-deploy:

@@ -63,32 +63,36 @@ public class RecpEncapsulator {
 	 * Ingescape environment.
 	 */
 	public void launchRECPAsAnIngescapeAgent() {
+		
+		/** DISABLING TEMPORARY RECP Agent Encapsulation FOR PoC PURPOSES (BEGINNING) **/
 		// Initializing the Main RECP Agent 
-		this.setRecpEncapsulationMainAgentListener(new RecpEncapsulationMainAgentListener());
+//		this.setRecpEncapsulationMainAgentListener(new RecpEncapsulationMainAgentListener());
+//		
+//		// Preparing the Web Socket-based communication with Ingescape 
+//		this.setGlobalContext(new Global("ws://localhost:8000"));
+//		this.getGlobalContext().observeWebSocketEvents(this.getRecpEncapsulationMainAgentListener());
+//		
+//		// Preparing the Agent dedicated to the encapsulation (The Agent with the highest level of encapsulation)
+//		this.setRecpEncapsulationAgent(this.getGlobalContext().agentCreate("recpEncapsulationAgent"));
+//		this.getRecpEncapsulationAgent().observeAgentEvents(recpEncapsulationMainAgentListener);
+//		
+//		// Initializing the RECP's Agent dedicated to the S (from SCRUD) of patterns
+//		this.setRecpSearchAgent(new RECPSearchAgent());
+//		
+//		// Actual encapsulation of the RECP's Agents
+//		this.getRecpEncapsulationAgent().definition.setName("RECP Tool Agent");
+//		this.getRecpEncapsulationAgent().definition.setDescription("The Agent encapsulating the RECP Tool");
+//		this.getRecpEncapsulationAgent().definition.inputCreate("patternSearchByName", IoaType.IGS_STRING_T);
+//		this.getRecpEncapsulationAgent().definition.inputCreate("patternSearchByProblem", IoaType.IGS_STRING_T);
+//		this.getRecpEncapsulationAgent().definition.outputCreate("patternFound", IoaType.IGS_STRING_T);
+//		// Coupling the Encapsulation Agent's input to the RECP Search Agent's input	  
+//		this.getRecpEncapsulationAgent().observeInput("patternSearchByName", this.getRecpSearchAgent());
+//		
+//		
+//		// launching the encapsulation agent
+//		this.getRecpEncapsulationAgent().start();
 		
-		// Preparing the Web Socket-based communication with Ingescape 
-		this.setGlobalContext(new Global("ws://localhost:3000"));
-		this.getGlobalContext().observeWebSocketEvents(this.getRecpEncapsulationMainAgentListener());
-		
-		// Preparing the Agent dedicated to the encapsulation (The Agent with the highest level of encapsulation)
-		this.setRecpEncapsulationAgent(this.getGlobalContext().agentCreate("recpEncapsulationAgent"));
-		this.getRecpEncapsulationAgent().observeAgentEvents(recpEncapsulationMainAgentListener);
-		
-		// Initializing the RECP's Agent dedicated to the S (from SCRUD) of patterns
-		this.setRecpSearchAgent(new RECPSearchAgent());
-		
-		// Actual encapsulation of the RECP's Agents
-		this.getRecpEncapsulationAgent().definition.setName("RECP Tool Agent");
-		this.getRecpEncapsulationAgent().definition.setDescription("The Agent encapsulating the RECP Tool");
-		this.getRecpEncapsulationAgent().definition.inputCreate("patternSearchByName", IoaType.IGS_STRING_T);
-		this.getRecpEncapsulationAgent().definition.inputCreate("patternSearchByProblem", IoaType.IGS_STRING_T);
-		this.getRecpEncapsulationAgent().definition.outputCreate("patternFound", IoaType.IGS_STRING_T);
-		// Coupling the Encapsulation Agent's input to the RECP Search Agent's input	  
-		this.getRecpEncapsulationAgent().observeInput("patternSearchByName", this.getRecpSearchAgent());
-		
-		
-		// launching the encapsulation agent
-		this.getRecpEncapsulationAgent().start();
+		/** DISABLING TEMPORARY RECP Agent Encapsulation FOR PoC PURPOSES (END) **/
 		
 		System.out.println("RECP Agent launched successfully under Ingescape!");
 	}

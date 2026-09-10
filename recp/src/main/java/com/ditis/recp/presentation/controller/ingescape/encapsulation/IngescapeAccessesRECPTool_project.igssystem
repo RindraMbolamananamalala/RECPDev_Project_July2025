@@ -304,70 +304,43 @@
             "children": [
                 {
                     "class": "92f79476-8a2e-4d2c-bdd4-a4b3c9357bc3",
-                    "height": 100,
+                    "height": 133.44302080000014,
                     "name": "",
                     "simulationTime": 5000,
                     "uuid": "e01293b9-bc79-4242-8d54-f12e03a18b91",
-                    "width": 250,
-                    "x": 11320.291275820975,
-                    "y": -5460.138680816632
-                },
-                {
-                    "agent": {
-                    },
-                    "class": "ebe52e4a-b7f9-4325-a959-cd69f6625036",
-                    "height": 122,
-                    "name": "RECP Tool Agent",
-                    "simulationTime": 5000,
-                    "uuid": "3ffa36cf-a174-464b-bf30-13fb30b94bee",
-                    "width": 250,
-                    "x": 11969.247874245035,
-                    "y": -3678.187841411021
+                    "width": 619.7842476249997,
+                    "x": 10129.293384601513,
+                    "y": -6886.517534266364
                 },
                 {
                     "agent": {
                         "instances": [
                             {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:3000 --device Wi-Fi",
-                                "isAttachedToCircle": true,
-                                "uuid": "93e84e04-8e96-4744-a5b4-622bc48c7a05"
+                                "commandLine": "C:\\pythonProjectTestStats\\.venv\\REToolEncapsulationProject\\Scripts\\python.exe C:\\ProjetsPythonLocaux\\REToolISEncapsulationProject\\wREToolISEncapsulation\\REToolEncapsulationProject\\main.py AtlassianJira_RequirementsEngineeringAgent Ethernet 5670",
+                                "hostname": "MBOLAMANA-MOB2",
+                                "ip": "159.31.100.29",
+                                "isAttachedToCircle": false,
+                                "mac": "28:00:AF:4C:90:A8",
+                                "uuid": "130703fe-f04e-44b4-96ac-b374cf4981cb"
                             },
                             {
-                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:8000 --device Wi-Fi",
-                                "isAttachedToCircle": true,
-                                "uuid": "653fdbd1-e846-47a4-805c-1b29b3d6e9c6"
-                            }
-                        ]
-                    },
-                    "class": "48879EBE0FBC48D8B429F11510954D9B",
-                    "height": 151.21234580481547,
-                    "name": "Proxy",
-                    "simulationTime": 5000,
-                    "uuid": "bbe15ca3-55a2-4cb9-9a9a-17893d37b2e6",
-                    "width": 229.9495681489243,
-                    "x": 11132.691577287782,
-                    "y": -4002.6714497658404
-                },
-                {
-                    "agent": {
-                        "instances": [
-                            {
-                                "commandLine": "C:\\pythonProjectTestStats\\.venv\\REToolAncapsulationProject\\Scripts\\python.exe C:\\ProjetsPythonLocaux\\REToolISEncapsulationProject\\wREToolISEncapsulation\\REToolEncapsulationProject\\main.py AtlassianJira_RequirementsEngineeringAgent Wi-Fi 5670",
+                                "commandLine": "C:\\pythonProjectTestStats\\.venv\\REToolEncapsulationProject\\Scripts\\python.exe C:\\ProjetsPythonLocaux\\REToolISEncapsulationProject\\wREToolISEncapsulation\\REToolEncapsulationProject\\main.py AtlassianJira_RequirementsEngineeringAgent Wi-Fi 5670",
                                 "hostname": "MBOLAMANA-MOB2",
-                                "ip": "10.24.157.69",
+                                "ip": "10.73.120.69",
                                 "isAttachedToCircle": false,
-                                "uuid": "169f7dd0-582d-47b0-aced-68285fcd3154"
+                                "mac": "4C:49:6C:F9:A7:A4",
+                                "uuid": "c13fd8d3-1f2e-445b-99f1-85c5e593507b"
                             }
                         ]
                     },
                     "class": "92f79476-8a2e-4d2c-bdd4-a4b3c9357bc3",
-                    "height": 100,
+                    "height": 207.73621138779984,
                     "name": "AtlassianJira_RequirementsEngineeringAgent",
                     "simulationTime": 5000,
-                    "uuid": "4b171b59-715e-4e3f-8d14-c16683e3bbc6",
-                    "width": 250,
-                    "x": 11746.949736129263,
-                    "y": -4653.68034721372
+                    "uuid": "c8526d63-a5d0-4e1f-a990-8e38765c9098",
+                    "width": 849.360104583997,
+                    "x": 10356.283999534042,
+                    "y": -6201.056362224
                 },
                 {
                     "data": {
@@ -378,14 +351,30 @@
                         "showTimestamps": true,
                         "string_decoder": "JSON"
                     },
-                    "height": 2234.0037902598233,
+                    "height": 1583.9776272242066,
                     "isExpanded": true,
                     "name": "",
                     "tool": "com.ingescape.circle.tool.observer",
-                    "uuid": "70e28700-8c74-467a-bd92-b72eb53f1181",
-                    "width": 1683.7879262673307,
-                    "x": 12238.161759919689,
-                    "y": -6309.683031968508
+                    "uuid": "2c240a0e-d7ff-4c3c-a6e6-aa0bec75d5fb",
+                    "width": 1881.0959068433344,
+                    "x": 11815.629239378322,
+                    "y": -6742.913893253653
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "Fetch all the requirements within the requirements repository"
+                        ],
+                        "value_type": "STRING"
+                    },
+                    "height": 144.20719601620038,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "d18f2cb2-bb02-4f41-9627-cc408ed2d565",
+                    "width": 553.614848563755,
+                    "x": 9209.200458942534,
+                    "y": -6176.471229478942
                 },
                 {
                     "data": {
@@ -400,28 +389,167 @@
                     "tool": "com.ingescape.circle.tool.writer",
                     "uuid": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
                     "width": 466.9148199072882,
-                    "x": 10742.21238012028,
-                    "y": -4604.125569000284
+                    "x": 9492.610637713931,
+                    "y": -3734.844341190649
+                },
+                {
+                    "agent": {
+                    },
+                    "class": "ebe52e4a-b7f9-4325-a959-cd69f6625036",
+                    "height": 122,
+                    "name": "RECP Tool Agent",
+                    "simulationTime": 5000,
+                    "uuid": "66171cfe-321e-4317-bd63-3901e3ff3e0b",
+                    "width": 250,
+                    "x": 10472.546743563209,
+                    "y": -3618.54677170338
+                },
+                {
+                    "data": {
+                        "data_decoder": "BINARY",
+                        "mostRecentFirst": true,
+                        "msg_type": "",
+                        "proto_file_path": "",
+                        "showTimestamps": true,
+                        "string_decoder": "JSON"
+                    },
+                    "height": 1177.8063184885887,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.observer",
+                    "uuid": "70e28700-8c74-467a-bd92-b72eb53f1181",
+                    "width": 869.183012826974,
+                    "x": 11255.439682788334,
+                    "y": -4222.54385193824
+                },
+                {
+                    "data": {
+                        "data_decoder": "BINARY",
+                        "mostRecentFirst": true,
+                        "msg_type": "",
+                        "proto_file_path": "",
+                        "showTimestamps": true,
+                        "string_decoder": "PLAIN_TEXT"
+                    },
+                    "height": 75,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.observer",
+                    "uuid": "c236c0a4-518c-4ac1-8199-d86247b60516",
+                    "width": 250,
+                    "x": 10939.917851993112,
+                    "y": -2466.872315704991
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:8000 --device Ethernet",
+                                "isAttachedToCircle": true,
+                                "uuid": "653fdbd1-e846-47a4-805c-1b29b3d6e9c6"
+                            },
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:8000 --device Ethernet",
+                                "isAttachedToCircle": true,
+                                "uuid": "25db28a7-75fd-4189-96de-43e0fd943850"
+                            },
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:3000 --device Ethernet",
+                                "isAttachedToCircle": true,
+                                "uuid": "a62b3ae0-54de-4f19-a6c0-89605b71b12f"
+                            },
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsProxy.exe\" --port 5670 --name Proxy --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --ws ws://localhost:5000 --device Ethernet",
+                                "isAttachedToCircle": true,
+                                "uuid": "c1da4f78-683f-4550-afd9-ebf85b902c24"
+                            }
+                        ]
+                    },
+                    "class": "48879EBE0FBC48D8B429F11510954D9B",
+                    "height": 151.21234580481547,
+                    "name": "Proxy",
+                    "simulationTime": 5000,
+                    "uuid": "bbe15ca3-55a2-4cb9-9a9a-17893d37b2e6",
+                    "width": 229.9495681489243,
+                    "x": 10563.914300735236,
+                    "y": -4109.657306788353
+                },
+                {
+                    "agent": {
+                        "instances": [
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsMQTT.exe\" --port 5670 --name MQTT --device Ethernet --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --topics robot_digital_twin --broker tcp://localhost:1883",
+                                "isAttachedToCircle": true,
+                                "uuid": "fbfd4d9d-9543-49c5-a2ec-eb776ecc3fb8"
+                            },
+                            {
+                                "commandLine": "\"C:\\Program Files\\Ingescape\\Ingescape Circle v4\\igsMQTT.exe\" --port 5670 --name MQTT --device Ethernet --license \"C:/Users/rmbolamananamalala/OneDrive - IMT MINES ALES/Documents/Ingescape/licenses\" --topics robot_digital_twin --broker tcp://localhost:1883",
+                                "isAttachedToCircle": true,
+                                "uuid": "30213c62-8368-4a6b-800a-5d8af54c8a4b"
+                            }
+                        ]
+                    },
+                    "class": "D42A966E11324A978755ED8E9BD26B9F",
+                    "data": {
+                        "topics": [
+                            "robot_digital_twin"
+                        ]
+                    },
+                    "height": 100,
+                    "name": "MQTT",
+                    "simulationTime": 5000,
+                    "uuid": "83d31aed-b1f6-4b68-b7ba-3db198fb20eb",
+                    "width": 250,
+                    "x": 10544.475319806454,
+                    "y": -2471.484373698325
+                },
+                {
+                    "data": {
+                        "entries": [
+                            "transporter"
+                        ],
+                        "value_type": "STRING"
+                    },
+                    "height": 88,
+                    "isExpanded": true,
+                    "name": "",
+                    "tool": "com.ingescape.circle.tool.writer",
+                    "uuid": "57f06a32-3e92-4acf-8f8c-743133abb702",
+                    "width": 250,
+                    "x": 10202.06118059565,
+                    "y": -2497.5214404142725
                 }
             ],
             "links": {
                 "others": [
                     {
-                        "destination": "3ffa36cf-a174-464b-bf30-13fb30b94bee",
+                        "destination": "c8526d63-a5d0-4e1f-a990-8e38765c9098",
                         "destinationIO": {
-                            "name": "patternSearchByName",
+                            "name": "commandOfRequirements",
                             "type": "INPUT"
                         },
-                        "source": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
+                        "source": "d18f2cb2-bb02-4f41-9627-cc408ed2d565",
                         "sourceIO": {
                             "name": "value",
                             "type": "OUTPUT"
                         }
                     },
                     {
-                        "destination": "4b171b59-715e-4e3f-8d14-c16683e3bbc6",
+                        "destination": "2c240a0e-d7ff-4c3c-a6e6-aa0bec75d5fb",
                         "destinationIO": {
-                            "name": "commandOfRequirements",
+                            "name": "wildcard",
+                            "type": "INPUT"
+                        },
+                        "source": "c8526d63-a5d0-4e1f-a990-8e38765c9098",
+                        "sourceIO": {
+                            "name": "requirementsAsked",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "66171cfe-321e-4317-bd63-3901e3ff3e0b",
+                        "destinationIO": {
+                            "name": "patternSearchByName",
                             "type": "INPUT"
                         },
                         "source": "d6ccbb73-dc90-4e29-b3ff-3d7de9240c69",
@@ -436,9 +564,33 @@
                             "name": "wildcard",
                             "type": "INPUT"
                         },
-                        "source": "4b171b59-715e-4e3f-8d14-c16683e3bbc6",
+                        "source": "66171cfe-321e-4317-bd63-3901e3ff3e0b",
                         "sourceIO": {
-                            "name": "requirementsAsked",
+                            "name": "patternFound",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "83d31aed-b1f6-4b68-b7ba-3db198fb20eb",
+                        "destinationIO": {
+                            "name": "robot_digital_twin",
+                            "type": "INPUT"
+                        },
+                        "source": "57f06a32-3e92-4acf-8f8c-743133abb702",
+                        "sourceIO": {
+                            "name": "value",
+                            "type": "OUTPUT"
+                        }
+                    },
+                    {
+                        "destination": "c236c0a4-518c-4ac1-8199-d86247b60516",
+                        "destinationIO": {
+                            "name": "wildcard",
+                            "type": "INPUT"
+                        },
+                        "source": "83d31aed-b1f6-4b68-b7ba-3db198fb20eb",
+                        "sourceIO": {
+                            "name": "robot_digital_twin",
                             "type": "OUTPUT"
                         }
                     }

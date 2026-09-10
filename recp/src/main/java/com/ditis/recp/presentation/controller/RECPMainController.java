@@ -258,18 +258,16 @@ public class RECPMainController{
 	 */
 	private String sanitizeFilename(String dbName) {
 	    if (dbName == null || dbName.isEmpty()) return "default_diagram.png";
-	    // 1. Remove parentheses but KEEP the spaces around them
+	    // 1. Supprime les parenthèses et leur contenu
 	    String cleanName = dbName.replaceAll("\\(.*?\\)", "");
-	    // 2. Remove the " Design Pattern" suffix
-	    cleanName = cleanName.replace(" Design Pattern", "");
-	    // 3. Replace all spaces AND existing underscores with a single underscore
-	    // This will transform "MVC  Design" into "MVC_Design"
-	    cleanName = cleanName.replaceAll("[\\s_]+", "_");
-	    // 4. Clean up any trailing underscores before the extension
-	    cleanName = cleanName.replaceAll("_+", "_");
-	    if (!cleanName.toLowerCase().endsWith(".png")) {
-	        cleanName += ".png";
-	    }
-	    return cleanName;
+	    // 2. Supprime les apostrophes et caractères spéciaux (comme dans EARS')
+	    cleanName = cleanName.replaceAll("['’‘]", "");
+	    // 3. Remplace " Design Pattern" et " Requirements pattern" par rien
+	    cleanName = cleanName.replace(" Design Pattern", "").replace(" Requirements pattern", "");
+	    // 4. Remplace TOUT ce qui n'est pas une lettre ou un chiffre par un seul underscore
+	    cleanName = cleanName.replaceAll("[^a-zA-Z0-9]+", "_");
+	    // 5. Nettoie les underscores en double ou en fin de chaîne
+	    cleanName = cleanName.replaceAll("_+", "_").replaceAll("_$", "");
+	    return cleanName.toLowerCase() + ".png"; // Passage en minuscule pour éviter les surprises Linux
 	}
 }

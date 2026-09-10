@@ -156,6 +156,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+        			<!-- Including the Ingescape Circle - related dependencies -->
+        			<includeSystemScope>true</includeSystemScope>
+    			</configuration>
 			</plugin>
 		</plugins>
 	</build>

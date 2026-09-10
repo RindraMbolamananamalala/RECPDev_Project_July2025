@@ -1,4 +1,4 @@
-# Step 1 : General Build
+# Step 1 : General Build of the application
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 COPY . .

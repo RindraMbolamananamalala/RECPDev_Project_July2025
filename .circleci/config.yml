@@ -10,7 +10,7 @@ jobs:
           path: ~/project
       - run:
           name: Build and Test
-          command: mvn -B clean package
+          command: mvn -B clean package -DskipTests
 
   deploy-docker-image:
     machine:

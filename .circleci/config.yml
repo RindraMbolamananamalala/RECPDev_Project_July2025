@@ -1,0 +1,38 @@
+version: 2.1
+
+jobs:
+  build-and-test:
+    docker:
+      - image: cimg/openjdk:21.0
+    working_directory: ~/project/recp
+    steps:
+      - checkout:
+          path: ~/project
+      - run:
+          name: Build and Test
+          command: mvn -B clean package
+
+  deploy-docker-image:
+    machine:
+      image: ubuntu-2204:2024.01.1 
+    working_directory: ~/project/recp
+    steps:
+      - checkout:
+          path: ~/project
+      - run:
+          name: Build and Push Docker Image
+          command: |
+            # Connexion à ton registre Azure (ACR)
+            echo "$DOCKER_PASS" | docker login recptool.azurecr.io -u "$DOCKER_USER" --password-stdin
+            
+            # Build et Push
+            docker build -t recptool.azurecr.io/recp-app:latest .
+            docker push recptool.azurecr.io/recp-app:latest
+
+workflows:
+  test-and-deploy:
+    jobs:
+      - build-and-test
+      - deploy-docker-image:
+          requires:
+            - build-and-test

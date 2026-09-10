@@ -258,7 +258,7 @@ public class RECPMainController{
 	 */
 	private String sanitizeFilename(String dbName) {
 	    if (dbName == null || dbName.isEmpty()) return "default_diagram.png";
-	    // 1. Supprime les parenthèses et leur contenu
+	    // 1. Remove parentheses but KEEP the spaces around them
 	    String cleanName = dbName.replaceAll("\\(.*?\\)", "");
 	    // 2. Supprime les apostrophes et caractères spéciaux (comme dans EARS')
 	    cleanName = cleanName.replaceAll("['’‘]", "");

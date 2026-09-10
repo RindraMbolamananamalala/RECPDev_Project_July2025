@@ -22,7 +22,7 @@ COPY --from=build /app/patterndb.db .
 
 # Step 6 : Copying required data directories for pattern search
 COPY --from=build /app/PatternsRECPLevelData ./PatternsRECPLevelData
-COPY --from=build /app/PatternsRECPLevelData/PatternsDiagramImages ./PatternsDiagramImages
+COPY --from=build /app/PatternsRECPLevelData/PatternsDiagramImages/MockRECP/ ./PatternsDiagramImages/
 
 # Step 7 : Exposing the application port (matching the port used in the Spring Boot application)
 EXPOSE 8090

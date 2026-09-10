@@ -91,25 +91,29 @@ public class RECPMainController{
 		    // Putting (Copying) the Generic & Illustration Diagrams images within the local folder for pattern's diagrams images 
 		    // which is synchronized with the Image folder of the Server (TomCat)
 		    /** VERY TEMPORARY, only 2 examples of applications diagrams are handled by the available version of the RECP **/
-		    imageAS.copyImageToServerSide(
-		    	this.getWebImageUrl(patternRead.getGenericDiagramImagePath())
-		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getGenericDiagramImageName() + ".png"
-		    );
-		    imageAS.copyImageToServerSide(
-		    		this.getWebImageUrl(patternRead.getExamplesDiagramsImagesPaths().get(0))
-		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getIllustrationDiagramImageName(1) + ".png"
-		    );
-		    imageAS.copyImageToServerSide(
-		    		this.getWebImageUrl(patternRead.getExamplesDiagramsImagesPaths().get(1))
-		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getIllustrationDiagramImageName(2) + ".png"
-		    );
+		    
+			String genericFileName = sanitizeFilename(patternRead.getGenericDiagramImageName());
+			String illustration1FileName = sanitizeFilename(patternRead.getIllustrationDiagramImageName(1));
+			String illustration2FileName = sanitizeFilename(patternRead.getIllustrationDiagramImageName(2));
+			
+			imageAS.copyImageToServerSide(
+				    patternRead.getGenericDiagramImagePath(), 
+				    this.patternsDiagramsLocalImageRepositoryPath + "/" + genericFileName
+				);
+				imageAS.copyImageToServerSide(
+				    patternRead.getExamplesDiagramsImagesPaths().get(0), 
+				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration1FileName
+				);
+				imageAS.copyImageToServerSide(
+				    patternRead.getExamplesDiagramsImagesPaths().get(1), 
+				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration2FileName
+				);
+				
 		    // actualizing the Main HMI with the recent Data retrieved
-		    model.addAttribute("genericDiagram"
-		    						, serverImagesFolderPath + patternRead.getGenericDiagramImageName() + ".png"); 
-			model.addAttribute("illustrationDiagram1"
-								, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName(1) + ".png");
-			model.addAttribute("illustrationDiagram2"
-					, serverImagesFolderPath + patternRead.getIllustrationDiagramImageName(2) + ".png");
+				model.addAttribute("genericDiagram", serverImagesFolderPath + genericFileName); 
+				model.addAttribute("illustrationDiagram1", serverImagesFolderPath + illustration1FileName);
+				model.addAttribute("illustrationDiagram2", serverImagesFolderPath + illustration2FileName);
+				
 		    //displaying the actualized version of the Main HMI
 		    return this.getMainPageMNV();
 		} catch (Exception e) {
@@ -241,5 +245,29 @@ public class RECPMainController{
 	    // 2. Return the relative web path that matches our WebConfig mapping
 	    // This will result in something like "/images/Pattern_n9_EARS.png"
 	    return "/images/" + fileName;
+	}
+	
+	/**
+	 * Sanitizes the filename to ensure it is suitable for use in a URL and follows
+	 * GitHub naming conventions.
+	 * 
+	 * @param dbName The original filename from the database.
+	 * @return A sanitized filename suitable for use in a URL.
+	 */
+	private String sanitizeFilename(String dbName) {
+	    if (dbName == null || dbName.isEmpty()) {
+	        return "default_diagram.png";
+	    }
+	    // 1. Remove everything inside parentheses (e.g., "(Model-View-Controller)")
+	    String cleanName = dbName.replaceAll("\\s*\\(.*?\\)\\s*", "");
+	    // 2. Remove specific suffixes like " Design Pattern"
+	    cleanName = cleanName.replace(" Design Pattern", "");
+	    // 3. Replace all spaces with underscores to match GitHub naming convention
+	    cleanName = cleanName.replaceAll("\\s+", "_");
+	    // 4. Ensure the filename ends with .png (case insensitive check)
+	    if (!cleanName.toLowerCase().endsWith(".png")) {
+	        cleanName += ".png";
+	    }
+	    return cleanName;
 	}
 }

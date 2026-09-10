@@ -96,23 +96,23 @@ public class RECPMainController{
 			String illustration1FileName = sanitizeFilename(patternRead.getIllustrationDiagramImageName(1));
 			String illustration2FileName = sanitizeFilename(patternRead.getIllustrationDiagramImageName(2));
 			
-			imageAS.copyImageToServerSide(
-				    patternRead.getGenericDiagramImagePath(), 
-				    this.patternsDiagramsLocalImageRepositoryPath + "/" + genericFileName
-				);
-				imageAS.copyImageToServerSide(
-				    patternRead.getExamplesDiagramsImagesPaths().get(0), 
-				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration1FileName
-				);
-				imageAS.copyImageToServerSide(
-				    patternRead.getExamplesDiagramsImagesPaths().get(1), 
-				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration2FileName
-				);
+//			imageAS.copyImageToServerSide(
+//				    patternRead.getGenericDiagramImagePath(), 
+//				    this.patternsDiagramsLocalImageRepositoryPath + "/" + genericFileName
+//				);
+//				imageAS.copyImageToServerSide(
+//				    patternRead.getExamplesDiagramsImagesPaths().get(0), 
+//				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration1FileName
+//				);
+//				imageAS.copyImageToServerSide(
+//				    patternRead.getExamplesDiagramsImagesPaths().get(1), 
+//				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration2FileName
+//				);
 				
 		    // actualizing the Main HMI with the recent Data retrieved
-				model.addAttribute("genericDiagram", serverImagesFolderPath + genericFileName); 
-				model.addAttribute("illustrationDiagram1", serverImagesFolderPath + illustration1FileName);
-				model.addAttribute("illustrationDiagram2", serverImagesFolderPath + illustration2FileName);
+			model.addAttribute("genericDiagram", serverImagesFolderPath + genericFileName);
+			model.addAttribute("illustrationDiagram1", serverImagesFolderPath + illustration1FileName);
+			model.addAttribute("illustrationDiagram2", serverImagesFolderPath + illustration2FileName);
 				
 		    //displaying the actualized version of the Main HMI
 		    return this.getMainPageMNV();
@@ -248,23 +248,25 @@ public class RECPMainController{
 	}
 	
 	/**
-	 * Sanitizes the filename to ensure it is suitable for use in a URL and follows
-	 * GitHub naming conventions.
+	 * Sanitizing the filename to ensure it is safe for use in URLs and file
+	 * systems. This method removes unwanted characters, replaces spaces with
+	 * underscores, and ensures the filename ends with a .png extension.
 	 * 
 	 * @param dbName The original filename from the database.
-	 * @return A sanitized filename suitable for use in a URL.
+	 * @return A sanitized version of the filename suitable for use in URLs and file
+	 *         systems.
 	 */
 	private String sanitizeFilename(String dbName) {
-	    if (dbName == null || dbName.isEmpty()) {
-	        return "default_diagram.png";
-	    }
-	    // 1. Remove everything inside parentheses (e.g., "(Model-View-Controller)")
-	    String cleanName = dbName.replaceAll("\\s*\\(.*?\\)\\s*", "");
-	    // 2. Remove specific suffixes like " Design Pattern"
+	    if (dbName == null || dbName.isEmpty()) return "default_diagram.png";
+	    // 1. Remove parentheses but KEEP the spaces around them
+	    String cleanName = dbName.replaceAll("\\(.*?\\)", "");
+	    // 2. Remove the " Design Pattern" suffix
 	    cleanName = cleanName.replace(" Design Pattern", "");
-	    // 3. Replace all spaces with underscores to match GitHub naming convention
-	    cleanName = cleanName.replaceAll("\\s+", "_");
-	    // 4. Ensure the filename ends with .png (case insensitive check)
+	    // 3. Replace all spaces AND existing underscores with a single underscore
+	    // This will transform "MVC  Design" into "MVC_Design"
+	    cleanName = cleanName.replaceAll("[\\s_]+", "_");
+	    // 4. Clean up any trailing underscores before the extension
+	    cleanName = cleanName.replaceAll("_+", "_");
 	    if (!cleanName.toLowerCase().endsWith(".png")) {
 	        cleanName += ".png";
 	    }

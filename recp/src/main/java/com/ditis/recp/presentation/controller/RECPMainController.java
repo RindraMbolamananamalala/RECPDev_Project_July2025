@@ -92,15 +92,15 @@ public class RECPMainController{
 		    /** VERY TEMPORARY, only 2 examples of applications diagrams are handled by the available version of the RECP **/
 		    imageAS.copyImageToServerSide(
 		    		patternRead.getGenericDiagramImagePath()
-		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getGenericDiagramImageName() + ".png"
+		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getGenericDiagramImageName() + ".png"
 		    );
 		    imageAS.copyImageToServerSide(
 		    		patternRead.getExamplesDiagramsImagesPaths().get(0)
-		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getIllustrationDiagramImageName(1) + ".png"
+		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getIllustrationDiagramImageName(1) + ".png"
 		    );
 		    imageAS.copyImageToServerSide(
 		    		patternRead.getExamplesDiagramsImagesPaths().get(1)
-		    		, this.patternsDiagramsLocalImageRepositoryPath + "\\" + patternRead.getIllustrationDiagramImageName(2) + ".png"
+		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getIllustrationDiagramImageName(2) + ".png"
 		    );
 		    // actualizing the Main HMI with the recent Data retrieved
 		    model.addAttribute("genericDiagram"

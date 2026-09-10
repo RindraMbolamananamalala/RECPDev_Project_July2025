@@ -20,7 +20,7 @@ public class RECPSCRUDAPIServiceImpl implements RECPSCRUDAPIServiceIntf{
 				  .build();
 		MediaType mediaType = MediaType.parse("text/plain");
 		Request request = new Request.Builder()
-				  .url("http://localhost:8090/search_patterns?typeOfPatternResearch=patternResearchByName&inputPatternInformation=" + patternName)
+				  .url("http://0.0.0.0:8090/search_patterns?typeOfPatternResearch=patternResearchByName&inputPatternInformation=" + patternName)
 				  .method("GET", null)
 				  .build();
 		try {

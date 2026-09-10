@@ -236,5 +236,8 @@ public class PatternEntity extends RECPGenericEntity{
 	   public String getIllustrationDiagramImageName(int illustrationNumber) {
 		   return "Pattern_n" + this.getId() + "_" + this.getName() + "_illustrationDiagram" + illustrationNumber; 
 	   }
+	   
+	   //VERY TEMPORARY
+	   
 	
 }

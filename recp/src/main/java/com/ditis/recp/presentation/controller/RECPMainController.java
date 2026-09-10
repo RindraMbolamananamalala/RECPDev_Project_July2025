@@ -81,7 +81,8 @@ public class RECPMainController{
 	@GetMapping(value="/search_and_display_patterns")
 	public ModelAndView researchAndDisplayPattern(String typeOfPatternResearch, String inputPatternInformation, Model model) {
 		// Setting up local variables
-		String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
+		//String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
+		String serverImagesFolderPath = "/images/"; 
 		try {
 			
 			// launching the SEARCH of Patterns
@@ -91,15 +92,15 @@ public class RECPMainController{
 		    // which is synchronized with the Image folder of the Server (TomCat)
 		    /** VERY TEMPORARY, only 2 examples of applications diagrams are handled by the available version of the RECP **/
 		    imageAS.copyImageToServerSide(
-		    		patternRead.getGenericDiagramImagePath()
+		    	this.getWebImageUrl(patternRead.getGenericDiagramImagePath())
 		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getGenericDiagramImageName() + ".png"
 		    );
 		    imageAS.copyImageToServerSide(
-		    		patternRead.getExamplesDiagramsImagesPaths().get(0)
+		    		this.getWebImageUrl(patternRead.getExamplesDiagramsImagesPaths().get(0))
 		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getIllustrationDiagramImageName(1) + ".png"
 		    );
 		    imageAS.copyImageToServerSide(
-		    		patternRead.getExamplesDiagramsImagesPaths().get(1)
+		    		this.getWebImageUrl(patternRead.getExamplesDiagramsImagesPaths().get(1))
 		    		, this.patternsDiagramsLocalImageRepositoryPath + "/" + patternRead.getIllustrationDiagramImageName(2) + ".png"
 		    );
 		    // actualizing the Main HMI with the recent Data retrieved
@@ -219,5 +220,26 @@ public class RECPMainController{
 		    								+ "</a>";
 		    }
 		    model.addAttribute(relationshipSpecificLinksTextElement, patternsText);
+	}
+	
+	//VERY TEMPORARY
+	/**
+	 * Converting a Windows path (from the DB) into a relative web path (to be used
+	 * within the Web HMI)
+	 * 
+	 * @param pathFromDb The path of the image file as stored in the RECP's Patterns
+	 *                   DB
+	 * @return The relative web path of the image file to be used within the Web HMI
+	 */
+	public String getWebImageUrl(String pathFromDb) {
+	    if (pathFromDb == null || pathFromDb.isEmpty()) {
+	        return "/images/default.png";
+	    }
+	    // 1. Extract only the filename from the Windows path (handling both \ and /)
+	    String fileName = pathFromDb.substring(pathFromDb.lastIndexOf("\\") + 1);
+	    fileName = fileName.substring(fileName.lastIndexOf("/") + 1);
+	    // 2. Return the relative web path that matches our WebConfig mapping
+	    // This will result in something like "/images/Pattern_n9_EARS.png"
+	    return "/images/" + fileName;
 	}
 }

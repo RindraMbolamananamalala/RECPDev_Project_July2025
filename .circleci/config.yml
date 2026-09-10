@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Build and Push Docker Image
           command: |
-            # Conneection to the Azure Registry
+            # Connection to the Azure Registry
             echo "$DOCKER_PASS" | docker login recptool.azurecr.io -u "$DOCKER_USER" --password-stdin
             
             # Build and Push of the RECP Tool image

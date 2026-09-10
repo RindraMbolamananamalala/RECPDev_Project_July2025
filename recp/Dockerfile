@@ -18,7 +18,7 @@ WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
 # Step 5 : Copying the SQLite database file (already filled with actual patterns)
-COPY --from=build /app/patterndb.db 
+COPY --from=build /app/patterndb.db .
 
 # Step 6 : Copying required data directories for pattern search
 COPY --from=build /app/PatternsRECPLevelData ./PatternsRECPLevelData

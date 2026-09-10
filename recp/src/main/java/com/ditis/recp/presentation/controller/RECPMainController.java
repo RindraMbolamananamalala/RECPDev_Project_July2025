@@ -208,7 +208,7 @@ public class RECPMainController{
 		    for(String patternName : relatedPatternsNames) {
 		    	patternsText += "</BR>" 
 		    								+ "<a href=\""
-		    										+ "http://" + this.serverAddress + ":" + this.serverPort 
+		    										+ "http://" + "127.0.0.1" + ":" + this.serverPort 
 		    										+ "/search_and_display_patterns" 
 		    										+ "?" 
 		    										+ "typeOfPatternResearch=patternResearchByName" 

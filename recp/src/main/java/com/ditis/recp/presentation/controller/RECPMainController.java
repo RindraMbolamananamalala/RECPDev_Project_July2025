@@ -208,7 +208,7 @@ public class RECPMainController{
 		    for(String patternName : relatedPatternsNames) {
 		    	patternsText += "</BR>" 
 		    								+ "<a href=\""
-		    										+ "http://" + "127.0.0.1" + ":" + this.serverPort 
+		    										+ "http://" + "recptool-hwfpgdgvakedevb0.westus3-01.azurewebsites.net" + ":" + this.serverPort 
 		    										+ "/search_and_display_patterns" 
 		    										+ "?" 
 		    										+ "typeOfPatternResearch=patternResearchByName" 

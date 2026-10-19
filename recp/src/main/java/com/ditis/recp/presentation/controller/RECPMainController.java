@@ -81,8 +81,8 @@ public class RECPMainController{
 	@GetMapping(value="/search_and_display_patterns")
 	public ModelAndView researchAndDisplayPattern(String typeOfPatternResearch, String inputPatternInformation, Model model) {
 		// Setting up local variables
-		//String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
-		String serverImagesFolderPath = "/images/"; 
+		String serverImagesFolderPath = "http://" + this.serverAddress + ":" + this.serverPort + "/images/";
+		//String serverImagesFolderPath = "/images/"; 
 		try {
 			
 			// launching the SEARCH of Patterns
@@ -96,18 +96,18 @@ public class RECPMainController{
 			String illustration1FileName = sanitizeFilename(patternRead.getIllustrationDiagramImageName(1));
 			String illustration2FileName = sanitizeFilename(patternRead.getIllustrationDiagramImageName(2));
 			
-//			imageAS.copyImageToServerSide(
-//				    patternRead.getGenericDiagramImagePath(), 
-//				    this.patternsDiagramsLocalImageRepositoryPath + "/" + genericFileName
-//				);
-//				imageAS.copyImageToServerSide(
-//				    patternRead.getExamplesDiagramsImagesPaths().get(0), 
-//				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration1FileName
-//				);
-//				imageAS.copyImageToServerSide(
-//				    patternRead.getExamplesDiagramsImagesPaths().get(1), 
-//				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration2FileName
-//				);
+			imageAS.copyImageToServerSide(
+				    patternRead.getGenericDiagramImagePath(), 
+				    this.patternsDiagramsLocalImageRepositoryPath + "/" + genericFileName
+				);
+				imageAS.copyImageToServerSide(
+				    patternRead.getExamplesDiagramsImagesPaths().get(0), 
+				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration1FileName
+				);
+				imageAS.copyImageToServerSide(
+				    patternRead.getExamplesDiagramsImagesPaths().get(1), 
+				    this.patternsDiagramsLocalImageRepositoryPath + "/" + illustration2FileName
+				);
 				
 		    // actualizing the Main HMI with the recent Data retrieved
 			model.addAttribute("genericDiagram", serverImagesFolderPath + genericFileName);
@@ -235,17 +235,17 @@ public class RECPMainController{
 	 *                   DB
 	 * @return The relative web path of the image file to be used within the Web HMI
 	 */
-	public String getWebImageUrl(String pathFromDb) {
-	    if (pathFromDb == null || pathFromDb.isEmpty()) {
-	        return "/images/default.png";
-	    }
-	    // 1. Extract only the filename from the Windows path (handling both \ and /)
-	    String fileName = pathFromDb.substring(pathFromDb.lastIndexOf("\\") + 1);
-	    fileName = fileName.substring(fileName.lastIndexOf("/") + 1);
-	    // 2. Return the relative web path that matches our WebConfig mapping
-	    // This will result in something like "/images/Pattern_n9_EARS.png"
-	    return "/images/" + fileName;
-	}
+//	public String getWebImageUrl(String pathFromDb) {
+//	    if (pathFromDb == null || pathFromDb.isEmpty()) {
+//	        return "/images/default.png";
+//	    }
+//	    // 1. Extract only the filename from the Windows path (handling both \ and /)
+//	    String fileName = pathFromDb.substring(pathFromDb.lastIndexOf("\\") + 1);
+//	    fileName = fileName.substring(fileName.lastIndexOf("/") + 1);
+//	    // 2. Return the relative web path that matches our WebConfig mapping
+//	    // This will result in something like "/images/Pattern_n9_EARS.png"
+//	    return "/images/" + fileName;
+//	}
 	
 	/**
 	 * Sanitizing the filename to ensure it is safe for use in URLs and file
@@ -257,19 +257,19 @@ public class RECPMainController{
 	 *         systems.
 	 */
 	private String sanitizeFilename(String dbName) {
-	    if (dbName == null || dbName.isEmpty()) return "default_diagram.png";
-	    // 1. Remove parentheses but KEEP the spaces around them
-	    String cleanName = dbName.replaceAll("\\(.*?\\)", "");
-	    // 2. Remove the " Design Pattern" suffix
-	    cleanName = cleanName.replace(" Design Pattern", "");
-	    // 3. Replace all spaces AND existing underscores with a single underscore
-	    // This will transform "MVC  Design" into "MVC_Design"
-	    cleanName = cleanName.replaceAll("[\\s_]+", "_");
-	    // 4. Clean up any trailing underscores before the extension
-	    cleanName = cleanName.replaceAll("_+", "_");
-	    if (!cleanName.toLowerCase().endsWith(".png")) {
-	        cleanName += ".png";
-	    }
-	    return cleanName;
+//	    if (dbName == null || dbName.isEmpty()) return "default_diagram.png";
+//	    // 1. Remove parentheses but KEEP the spaces around them
+//	    String cleanName = dbName.replaceAll("\\(.*?\\)", "");
+//	    // 2. Remove the " Design Pattern" suffix
+//	    cleanName = cleanName.replace(" Design Pattern", "");
+//	    // 3. Replace all spaces AND existing underscores with a single underscore
+//	    // This will transform "MVC  Design" into "MVC_Design"
+//	    cleanName = cleanName.replaceAll("[\\s_]+", "_");
+//	    // 4. Clean up any trailing underscores before the extension
+//	    cleanName = cleanName.replaceAll("_+", "_");
+//	    if (!cleanName.toLowerCase().endsWith(".png")) {
+//	        cleanName += ".png";
+//	    }
+	    return dbName;
 	}
 }
